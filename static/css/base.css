@@ -53,3 +53,8 @@ ul > li {
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+.bi-backspace-fill {
+    color: var(--color-mid-purple) !important;
+    font-size: 25px;
+    margin: 16px;
+}

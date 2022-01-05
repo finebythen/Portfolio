@@ -10,15 +10,110 @@
 {% endblock title %}
 
 {% block content %}
+    <div class="container-header">
+        <a href="{% url 'frontend-main' %}">
+            <i class="bi bi-backspace-fill"></i>
+        </a>
+    </div>
     <div class="container">
         <div class="card">
-            <div class="card-body">
-                <ul>
-                    <li></li>
-                </ul>
+            <div class="card-body" id="card-body-outside">
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>30.11.1987</p>
+                            <label>Detail:</label>
+                            <p>Geburtstag</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-geburtstag"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>1993-1996</p>
+                            <label>Detail:</label>
+                            <p>Grundschule Wyk auf Föhr</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-grundschule"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>1997</p>
+                            <label>Detail:</label>
+                            <p>International School of Düsseldorf</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-isd"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>1998-2001</p>
+                            <label>Detail:</label>
+                            <p>Gesamtschule Föhr/Amrum</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-gs-foehr"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>2001-2005</p>
+                            <label>Detail:</label>
+                            <p>Gesamtschule Flensburg (KTS)</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-gs-flensburg"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>2005-2009</p>
+                            <label>Detail:</label>
+                            <p>Petersen-Ingenieure Gmbh - Ausbildung Technische/r Zeichner/in</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-pi-1"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="card card-map-outside">
+                    <div class="grid-container-map">
+                        <div class="grid-info">
+                            <label>Zeitraum / Datum:</label>
+                            <p>2009</p>
+                            <label>Detail:</label>
+                            <p>Petersen-Ingenieure Gmbh - Geselle Technische/r Zeichner/in</p>
+                        </div>
+                        <div class="grid-map">
+                            <div class="map-leaflet" id="map-pi-2"></div>
+                        </div>
+                      </div>
+                </div>
             </div>
         </div>
     </div>
 {% endblock content %}
 
-{% block script %}{% endblock script %}
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/resume.js' %}"></script>
+{% endblock script %}
