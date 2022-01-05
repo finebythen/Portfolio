@@ -1,0 +1,62 @@
+/* Root */
+:root {
+    --color-light-beige: #F0ECE3;
+    --color-mid-beige: #DFD3C3;
+    --color-dark-beige: #C7B198;
+    --color-mid-purple: #A68DAD;
+    --tile-size-1: 16.67vh;
+    --tile-size-2: 33.34vh;
+}
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 16px;
+    grid-template-areas:
+    "tile-header tile-header tile-header tile-header tile-header tile-header"
+    "tile-py tile-py tile-js tile-js tile-html tile-html"
+    "tile-py tile-py tile-js tile-js tile-html tile-html"
+    "tile-css tile-css tile-csharp tile-csharp tile-vba tile-vba"
+    "tile-css tile-css tile-cplusplus tile-cplusplus tile-angular tile-angular"
+    "tile-django tile-django tile-drf tile-drf tile-angular tile-angular"
+    "tile-django tile-django tile-jquery tile-jquery tile-react tile-vue";
+}
+.tile-header { grid-area: tile-header; }
+.tile-py { grid-area: tile-py; }
+.tile-js { grid-area: tile-js; }
+.tile-html { grid-area: tile-html; }
+.tile-css { grid-area: tile-css; }
+.tile-csharp { grid-area: tile-csharp; }
+.tile-cplusplus { grid-area: tile-cplusplus; }
+.tile-vba { grid-area: tile-vba; }
+.tile-angular { grid-area: tile-angular; }
+.tile-react { grid-area: tile-react; }
+.tile-vue { grid-area: tile-vue; }
+.tile-django { grid-area: tile-django; }
+.tile-drf { grid-area: tile-drf; }
+.tile-jquery { grid-area: tile-jquery; }
+
+.tile-py {
+    background-color: var(--color-light-beige);
+}
+
+/* Tiles */
+.tile-header > a > i {
+    color: var(--color-mid-purple) !important;
+    font-size: 25px;
+}
+.tile-py {
+    height: var(--tile-size-2);
+    width: 100%;
+}
+.tile-blank {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.tile-blank > img {
+    height: 100%;
+}

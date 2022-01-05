@@ -47,11 +47,6 @@
 .tile-12 { grid-area: tile-12; }
 .tile-13 { grid-area: tile-13; }
 
-.tile-blank {
-    border: 1px solid var(--color-dark-beige);
-    border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
 .tile-01 {
     height: var(--tile-size-2);
     width: var(--tile-size-2);
@@ -97,7 +92,6 @@
 .tile-todo > div > h1 {
     color: #fff;
     font-weight: 700;
-    font-family: 'Sora', sans-serif;
 }
 .tile-languages > a > i,
 .tile-resume > a > i {

@@ -4,6 +4,7 @@
     --color-mid-beige: #DFD3C3;
     --color-dark-beige: #C7B198;
     --color-mid-purple: #A68DAD;
+    --google-font-sora: 'Sora', sans-serif;
 }
 
 /* Body */
@@ -11,4 +12,44 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--color-light-beige);
+}
+
+/* Card */
+.card {
+    margin: 2rem 0;
+    background-color: var(--color-mid-beige);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+/* Header, Label & Paragraph */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+    font-family: var(--google-font-sora);
+}
+
+/* Ul */
+ul {
+    height: 100%;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+ul > li {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Diverse */
+.tile-blank {
+    border: 1px solid var(--color-dark-beige);
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

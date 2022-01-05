@@ -1,12 +1,37 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
 
-{% block link %}{% endblock link %}
+{% block link %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/languages.css' %}">
+{% endblock link %}
 
 {% block title %}
     Programmiersprachen
 {% endblock title %}
 
-{% block content %}{% endblock content %}
+{% block content %}
+<div class="grid-container">
+    <div class="tile-header">
+        <a href="{% url 'frontend-main' %}">
+            <i class="bi bi-backspace-fill"></i>
+        </a>
+    </div>
+    <div class="tile-py tile-blank">
+        <img src="{% static 'img/python-logo.png' %}" alt="Python">
+    </div>
+    <div class="tile-js tile-blank"></div>
+    <div class="tile-html tile-blank"></div>
+    <div class="tile-css tile-blank"></div>
+    <div class="tile-csharp tile-blank"></div>
+    <div class="tile-cplusplus tile-blank"></div>
+    <div class="tile-vba tile-blank"></div>
+    <div class="tile-angular tile-blank"></div>
+    <div class="tile-react tile-blank"></div>
+    <div class="tile-vue tile-blank"></div>
+    <div class="tile-django tile-blank"></div>
+    <div class="tile-drf tile-blank"></div>
+    <div class="tile-jquery tile-blank"></div>
+</div>
+{% endblock content %}
 
 {% block script %}{% endblock script %}
