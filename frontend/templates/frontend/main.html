@@ -1,0 +1,45 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock link %}
+
+{% block title %}
+    Startseite
+{% endblock title %}
+
+{% block content %}
+<div class="grid-container">
+    <div class="tile-name tile-blank">
+        <div>
+            <h1>Finn Morten</h1>
+            <h1>Then</h1>
+        </div>
+    </div>
+    <div class="tile-resume tile-blank">
+        <a href="{% url 'frontend-resume' %}"><i class="bi bi-person-circle"></i></a>
+    </div>
+    <div class="tile-languages tile-blank">
+        <a href="{% url 'frontend-languages' %}"><i class="bi bi-folder"></i></a>
+    </div>
+    <div class="tile-todo tile-blank">
+        <a href="#"><i class="bi bi-list-task"></i></a>
+    </div>
+    <div class="tile-01 tile-blank"></div>
+    <div class="tile-02 tile-blank"></div>
+    <div class="tile-03 tile-blank"></div>
+    <div class="tile-04 tile-blank"></div>
+    <div class="tile-05 tile-blank"></div>
+    <div class="tile-06"></div>
+    <div class="tile-07 tile-blank"></div>
+    <div class="tile-08"></div>
+    <div class="tile-09 tile-blank"></div>
+    <div class="tile-10 tile-blank"></div>
+    <div class="tile-11 tile-blank"></div>
+    <div class="tile-12 tile-blank"></div>
+    <div class="tile-13"></div>
+</div>
+{% endblock content %}
+
+{% block script %}{% endblock script %}
