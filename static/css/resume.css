@@ -1,60 +1,92 @@
-/* Root */
 :root {
     --color-light-beige: #F0ECE3;
     --color-mid-beige: #DFD3C3;
     --color-dark-beige: #C7B198;
     --color-mid-purple: #A68DAD;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sora", sans-serif;
+}
+body {
+    background: var(--color-light-beige);
+}
+.container-header {
+    padding-top: 1rem;
+}
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .container {
+    margin: 100px;
+}
+section h1,
+section h2 {
+    color: var(--color-mid-purple);
+}
+section h1 {
+    font-size: 3rem;
+    margin: 20px;
+}
+section h2 {
+    font-size: 40px;
+    text-align: center;
+}
+section .text-container {
+    display: flex;
+    justify-content: space-around;
+}
+section .text-container .text-box {
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+    background: var(--color-mid-beige);
+    border: 1px solid var(--color-mid-beige);
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    text-align: center;
+}
+section .text-container .text-box h3 {
+    color: var(--color-dark-beige);
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+section .text-container .text-box p {
+    margin: 1rem 0 0 0;
+}
 
-/* Grid */
-.grid-container-map {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-    gap: 16px;
-    grid-template-areas:
-    "grid-info grid-map";
-}
-.grid-info { grid-area: grid-info; }
-.grid-map { grid-area: grid-map; }
-
-/* Body */
-body > .container-header {
-    width: 100%;
-    margin-top: 1rem;
-}
-
-/* Card */
-.card {
-    margin: 2rem auto;
-}
-#card-body-outside {
-    height: 85vh;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-.card-map-outside {
-    height: 250px;
-    width: 800px;
-    background-color: var(--color-dark-beige);
-}
-
-/* Header, Label & Paragraph */
-label {
-    margin: 16px 32px;
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: underline;
-}
-p {
-    margin: 0 32px;
-}
-
-/* Map */
 .map-leaflet {
     height: 250px;
     width: 100%;
-    border: 2px solid var(--color-mid-purple);
+    border: 1px solid var(--color-mid-beige);
     border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    section h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    section .text-container {
+        flex-direction: column;
+    }
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
 }
