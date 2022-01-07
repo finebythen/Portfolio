@@ -35,12 +35,8 @@ def app_todo_api_post_task(request):
 @api_view(['PUT'])
 def app_todo_api_put_task(request, pk):
     qs = Task.objects.get(id=pk)
-    if qs.closed:
-        qs.closed = False
-        qs.save()
-    else:
-        qs.closed = True
-        qs.save()
+    qs.closed = False if qs.closed else True
+    qs.save()
     return Response(status=status.HTTP_200_OK)
 
 
