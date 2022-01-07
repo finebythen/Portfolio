@@ -21,10 +21,10 @@
     "tile-header tile-header tile-header tile-header tile-header tile-header"
     "tile-py tile-py tile-js tile-js tile-html-css tile-html-css"
     "tile-py tile-py tile-js tile-js tile-html-css tile-html-css"
-    "tile-sql tile-sql tile-csharp tile-csharp tile-vba tile-vba"
-    "tile-sql tile-sql tile-cplusplus tile-cplusplus tile-angular tile-angular"
+    "tile-sql tile-sql tile-csharp tile-empty-2 tile-vba tile-vba"
+    "tile-sql tile-sql tile-empty-3 tile-cplusplus tile-angular tile-angular"
     "tile-django tile-django tile-drf tile-drf tile-angular tile-angular"
-    "tile-django tile-django tile-jquery tile-jquery tile-react tile-vue";
+    "tile-django tile-django tile-jquery tile-jquery tile-react tile-empty-1";
 }
 .tile-header { grid-area: tile-header; }
 .tile-py { grid-area: tile-py; }
@@ -36,10 +36,12 @@
 .tile-vba { grid-area: tile-vba; }
 .tile-angular { grid-area: tile-angular; }
 .tile-react { grid-area: tile-react; }
-.tile-vue { grid-area: tile-vue; }
 .tile-django { grid-area: tile-django; }
 .tile-drf { grid-area: tile-drf; }
 .tile-jquery { grid-area: tile-jquery; }
+.tile-empty-1 { grid-area: tile-empty-1; }
+.tile-empty-2 { grid-area: tile-empty-2; }
+.tile-empty-3 { grid-area: tile-empty-3; }
 
 /* Tiles */
 .tile-py {
@@ -57,7 +59,6 @@
 }
 .tile-django,
 .tile-react,
-.tile-vue,
 .tile-vba {
     background-color: var(--color-mid-purple);
 }

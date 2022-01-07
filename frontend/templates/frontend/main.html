@@ -17,14 +17,29 @@
             <h1>Then</h1>
         </div>
     </div>
-    <div class="tile-resume tile-blank">
-        <a href="{% url 'frontend-resume' %}"><i class="bi bi-person-circle"></i></a>
+    <div class="tile-resume tile-blank tile-flip">
+        <div class="tile-flip-front">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="tile-flip-back">
+            <a id="link-resume" href="{% url 'frontend-resume' %}">Lebenslauf</a>
+        </div>
     </div>
-    <div class="tile-languages tile-blank">
-        <a href="{% url 'frontend-languages' %}"><i class="bi bi-folder"></i></a>
+    <div class="tile-languages tile-blank tile-flip">
+        <div class="tile-flip-front">
+            <i class="bi bi-folder"></i>
+        </div>
+        <div class="tile-flip-back">
+            <a id="link-languages" href="{% url 'frontend-languages' %}">Sprachen</a>
+        </div>
     </div>
-    <div class="tile-todo tile-blank">
-        <a href="#"><i class="bi bi-clipboard-check"></i></a>
+    <div class="tile-todo tile-blank tile-flip">
+        <div class="tile-flip-front">
+            <i class="bi bi-clipboard-check"></i>
+        </div>
+        <div class="tile-flip-back">
+            <a id="link-todo" href="#">App: To-Do</a>
+        </div>
     </div>
     <div class="tile-01 tile-blank"></div>
     <div class="tile-02 tile-blank"></div>
