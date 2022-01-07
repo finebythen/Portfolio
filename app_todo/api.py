@@ -17,7 +17,7 @@ def app_todo_api_endpoints(request):
 
 @api_view(['GET'])
 def app_todo_api_get_tasks(request):
-    qs = Task.objects.all()
+    qs = Task.objects.all().order_by('closed', 'description')
     serializer = TaskSerializerGET(qs, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -30,6 +30,18 @@ def app_todo_api_post_task(request):
         serializer.save(created_user=user_name)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['PUT'])
+def app_todo_api_put_task(request, pk):
+    qs = Task.objects.get(id=pk)
+    if qs.closed:
+        qs.closed = False
+        qs.save()
+    else:
+        qs.closed = True
+        qs.save()
+    return Response(status=status.HTTP_200_OK)
 
 
 @api_view(['DELETE'])

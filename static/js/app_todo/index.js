@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", e => {
                 let btn = document.createElement('button');
 
                 p.textContent = list[i].description;
+                p.setAttribute('class', 'p-update-task');
                 p.style.cursor = 'pointer';
                 list[i].closed ? p.style.textDecoration = 'line-through' : p.style.textDecoration = 'none';
                 btn.setAttribute('class', 'btn btn-danger btn-sm btn-delete-task');
@@ -42,7 +43,14 @@ document.addEventListener("DOMContentLoaded", e => {
 
             // add listener to delete-buttons
             for(let i in list) {
+                let p_update = document.getElementsByClassName('p-update-task')[i];
                 let btn_delete = document.getElementsByClassName('btn-delete-task')[i];
+
+                p_update.addEventListener('click', e => {
+                    e.preventDefault();
+                    put_task(parseInt(list[i].id));
+                })
+
                 btn_delete.addEventListener('click', e => {
                     e.preventDefault();
                     delete_task(parseInt(btn_delete.value));
@@ -70,6 +78,24 @@ document.addEventListener("DOMContentLoaded", e => {
         .then(data => {console.log('Success: ', data)})
         .then(function() {
             form.reset();
+            get_tasks();
+        })
+        .catch((error) => {console.log('Error: ', error)})
+    };
+
+    const put_task = pk => {
+        let url = `${url_base}app-todo/api/put/task/${pk}/`;
+        let csrftoken = getCookie('csrftoken');
+
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            }
+        })
+        .then(data => {console.log('Success: ', data)})
+        .then(function() {
             get_tasks();
         })
         .catch((error) => {console.log('Error: ', error)})
