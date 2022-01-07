@@ -1,0 +1,37 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/app_todo/index.css' %}">
+{% endblock link %}
+
+{% block title %}
+    App: To-Do
+{% endblock title %}
+
+{% block content %}
+    <div class="container-header">
+        <a href="{% url 'frontend-main' %}">
+            <i class="bi bi-backspace-fill"></i>
+        </a>
+    </div>
+    <div class="container">
+        <div class="card card-body">
+            <div class="card-header">
+                <form id="form-todo">
+                    <input type="text" id="input-todo-task" placeholder="Task..." autocomplete="off" required>
+                    <button class="btn btn-success" id="btn-post-task" type="button">
+                        <i class="bi bi-clipboard-plus"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="card-body">
+                <ul id="ulist-todo"></ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/app_todo/index.js' %}"></script>
+{% endblock script %}

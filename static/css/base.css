@@ -33,6 +33,27 @@ label {
     font-family: var(--google-font-sora);
 }
 
+/* Input */
+input[type=text],
+select {
+    height: 42px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button */
+button {
+    margin: 8px 16px;
+    height: 42px;
+    min-width: 50px;
+    width: 100px;
+}
+
 /* Ul */
 ul {
     height: 100%;

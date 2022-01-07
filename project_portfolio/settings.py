@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 
+    'app_todo.apps.AppTodoConfig',
     'frontend.apps.FrontendConfig',
 ]
 
