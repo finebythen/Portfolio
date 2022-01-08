@@ -1,0 +1,36 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/app_calendar/index.css' %}">
+{% endblock link %}
+
+{% block title %}
+    App: Calendar
+{% endblock title %}
+
+{% block content %}
+    <div class="container-header">
+        <a href="{% url 'frontend-main' %}">
+            <i class="bi bi-backspace-fill"></i>
+        </a>
+    </div>
+    <div class="container-content">
+        <div class="grid-container">
+            <div class="grid-create">
+                <div class="card card-body">
+                    <form id="form-calendar"></form>
+                </div>
+            </div>
+            <div class="grid-list">
+                <div class="card card-body">
+                    <ul id="ulist-calendar"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/app_calendar/index.js' %}"></script>
+{% endblock script %}

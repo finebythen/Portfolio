@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.db.models import query
 from .models import Task
 
 def task_schliessen(modeladmin, request, queryset):
