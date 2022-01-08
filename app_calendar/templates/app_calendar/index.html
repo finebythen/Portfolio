@@ -16,16 +16,35 @@
         </a>
     </div>
     <div class="container-content">
-        <div class="grid-container">
-            <div class="grid-create">
-                <div class="card card-body">
-                    <form id="form-calendar"></form>
-                </div>
+        <div class="card" id="card-create">
+            <div class="card-body">
+                <form id="form-calendar">
+                    <label>Bezeichnung:</label>
+                    <input type="text" id="input-name" placeholder="Bezeichnung..." autocomplete="off" required>
+                    <label>Datum:</label>
+                    <div class="input-flex-start">
+                        <input type="date" id="input-date">
+                    </div>
+                    <label>Uhrzeit:</label>
+                    <div class="input-flex-between">
+                        <input type="time" id="input-time-from">
+                        <input type="time" id="input-time-to">
+                    </div>
+                    <label>weitere Angaben:</label>
+                    <textarea name="textarea-description" id="textarea-description" cols="30" rows="10"></textarea>
+                    <p id="p-description-counter">verbleibende Zeichen: 250</p>
+                    <label id="lbl-position">Position:</label>
+                    <div id="map"></div>
+                    <div class="input-flex-between">
+                        <input type="number" step="0.00001" id="input-latitude" readonly>
+                        <input type="number" step="0.00001" id="input-longitude" readonly>
+                    </div>
+                </form>
             </div>
-            <div class="grid-list">
-                <div class="card card-body">
-                    <ul id="ulist-calendar"></ul>
-                </div>
+        </div>
+        <div class="card" id="card-list">
+            <div class="card-body">
+                <ul id="ulist-calendar"></ul>
             </div>
         </div>
     </div>

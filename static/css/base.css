@@ -34,8 +34,12 @@ label {
 }
 
 /* Input */
+input[type=date],
+input[type=number],
 input[type=text],
-select {
+input[type=time],
+select,
+textarea {
     height: 42px;
     width: 100%;
     padding: 12px 20px;
