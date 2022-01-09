@@ -6,7 +6,7 @@ class Appointment(models.Model):
     date = models.DateField()
     time_from = models.TimeField()
     time_to = models.TimeField()
-    description = models.TextField(max_length=250, null=True, blank=True)
+    description = models.TextField(max_length=100, null=True, blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     closed = models.BooleanField(default=False)

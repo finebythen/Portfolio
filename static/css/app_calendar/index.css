@@ -44,7 +44,7 @@ textarea {
     margin: 8px 0;
 }
 textarea {
-    height: 150px;
+    height: 100px;
     margin-bottom: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -81,11 +81,17 @@ p {
     justify-content: flex-start;
 }
 
+/* Button */
+.btn-post-appointment {
+    margin: 8px 0;
+    width: 100%;
+}
+
 /* Map */
 #map {
     margin: 8px 0;
-    height: 250px;
-    max-height: 250px;
+    height: 225px;
+    max-height: 225px;
     border: 1px solid var(--color-mid-beige);
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -98,7 +104,7 @@ p {
 /* Calendar List Objects */
 #calendar-list-body {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     grid-gap: 1em;
     overflow-y: auto;
@@ -106,6 +112,8 @@ p {
 #calendar-list-body > .card {
     margin: 8px;
     padding: 0;
+    height: 375px;
+    max-height: 375px;
     width: 270px;
     max-width: 270px;
     border: 1px solid var(--color-dark-beige);
@@ -113,15 +121,53 @@ p {
     background-color: var(--color-dark-beige);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-#calendar-list-body > .card > .card-footer {
+#calendar-list-body > .card > .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-#calendar-list-body > .card > .card-footer > button {
-    margin: 0;
-    height: 32px;
-    width: 100px;
+#calendar-list-body > .card > .card-header > h6 {
+    margin: auto 0;
+}
+#calendar-list-body > .card > .card-body > div {
+    height: 91px;
+}
+#calendar-list-body > .card > .card-body > p,
+#calendar-list-body > .card > .card-body > div > p {
+    margin: 4px 8px;
+    font-size: 12px;
+}
+#calendar-list-body > .card > .card-body > div > .p-description-head {
+    margin-top: 16px;
+    font-size: 10px;
+    text-decoration: underline;
+}
+#calendar-list-body > .card > .card-body > .mapDiv {
+    height: 150px;
+    width: 100%;
+    border: 1px solid var(--color-dark-beige);
+    border-radius: 4px;
+    background-color: var(--color-dark-beige);
+}
+
+/* Scrollbar */
+#calendar-list-body::-webkit-scrollbar {
+    width: 11px;
+}
+#calendar-list-body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+#calendar-list-body::-webkit-scrollbar-track {
+    background: var(--color-mid-beige);
+}
+#calendar-list-body::-webkit-scrollbar-thumb {
+    background-color: var(--color-light-beige);
+    border-radius: 6px;
+    border: 3px solid var(--color-light-beige);
 }
 
 /* Media-Queries */

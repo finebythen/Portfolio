@@ -16,6 +16,12 @@ body {
 .container-header {
     padding-top: 1rem;
 }
+.container-header > a {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 10;
+}
 section {
     min-height: 100vh;
     display: flex;

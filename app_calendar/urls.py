@@ -11,4 +11,7 @@ urlpatterns = [
 
     # api [POST]
     path('api/post/appointment/', api.app_calendar_api_post_appointment, name="app-calendar-api-post-appointment"),
+
+    # api [DELETE]
+    path('api/delete/appointment/<int:pk>/', api.app_calendar_api_delete_appointment, name="app-calendar-api-delete-appointment"),
 ]

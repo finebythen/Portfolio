@@ -30,3 +30,10 @@ def app_calendar_api_post_appointment(request):
         serializer.save(created_user=user_name)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def app_calendar_api_delete_appointment(request, pk):
+    qs = Appointment.objects.get(id=pk)
+    qs.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
