@@ -21,10 +21,10 @@
     "tile-header tile-header tile-header tile-header tile-header tile-header"
     "tile-py tile-py tile-js tile-js tile-html-css tile-html-css"
     "tile-py tile-py tile-js tile-js tile-html-css tile-html-css"
-    "tile-sql tile-sql tile-csharp tile-empty-2 tile-vba tile-vba"
-    "tile-sql tile-sql tile-csharp tile-empty-2 tile-angular tile-angular"
+    "tile-sql tile-sql tile-csharp tile-empty-1 tile-vba tile-vba"
+    "tile-sql tile-sql tile-empty-2 tile-react tile-angular tile-angular"
     "tile-django tile-django tile-drf tile-drf tile-angular tile-angular"
-    "tile-django tile-django tile-jquery tile-jquery tile-react tile-empty-1";
+    "tile-django tile-django tile-jquery tile-jquery tile-node tile-node";
 }
 .tile-header { grid-area: tile-header; }
 .tile-py { grid-area: tile-py; }
@@ -38,6 +38,7 @@
 .tile-django { grid-area: tile-django; }
 .tile-drf { grid-area: tile-drf; }
 .tile-jquery { grid-area: tile-jquery; }
+.tile-node { grid-area: tile-node; }
 .tile-empty-1 { grid-area: tile-empty-1; }
 .tile-empty-2 { grid-area: tile-empty-2; }
 
@@ -45,9 +46,10 @@
 .tile-py {
     background-color: var(--color-light-beige);
 }
+.tile-drf,
 .tile-js,
 .tile-html-css,
-.tile-jquery {
+.tile-node {
     background-color: var(--color-mid-beige);
 }
 .tile-angular,

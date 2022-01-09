@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", e => {
     const card_calendar = document.getElementById('calendar-list-body');
     const name = document.getElementById('input-name');
     const date = document.getElementById('input-date');
-    const time_start = document.getElementById('input-time-from');
-    const time_end = document.getElementById('input-time-to');
+    const time_from = document.getElementById('input-time-from');
+    const time_to = document.getElementById('input-time-to');
     const description = document.getElementById('textarea-description');
+    const btn_post = document.getElementById('btn-post-appointment');
     let latitude = null;
     let longitude = null;
 
@@ -33,7 +34,6 @@ document.addEventListener("DOMContentLoaded", e => {
         .then(function(data) {
             let list = data;
             let fragment = document.createDocumentFragment();
-            console.log(list);
 
             while (card_calendar.hasChildNodes()) {
                 card_calendar.removeChild(card_calendar.firstChild);
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", e => {
                 div_card_header.appendChild(header_icon);
 
                 // body
-                p_date.textContent = `Datum: ${list[i].date}`;
+                p_date.textContent = `Datum: ${convert_date_format(list[i].date)}`;
                 p_time.textContent = `Zeit: ${list[i].time_from} - ${list[i].time_to}`;
                 p_description_header.textContent = 'Details:';
                 p_description_header.setAttribute('class', 'p-description-head');
@@ -123,13 +123,23 @@ document.addEventListener("DOMContentLoaded", e => {
                 'X-CSRFToken': csrftoken
             },
             body: JSON.stringify({
-                // Do something
+                'name': name.value,
+                'date': date.value,
+                'time_from': time_from.value,
+                'time_to': time_to.value,
+                'description': description.value,
+                'latitude': latitude,
+                'longitude': longitude
             })
         })
         .then(response => response.json())
         .then(data => {console.log('Success: ', data)})
         .then(function() {
-            // Do something
+            form.reset();
+            btn_post.value = 'post';
+            latitude = null;
+            longitude = null;
+            get_appointments();
         })
         .catch((error) => {console.log('Error: ', error)})
     };
@@ -152,6 +162,12 @@ document.addEventListener("DOMContentLoaded", e => {
         .catch((error) => {console.log('Error: ', error)})
     };
 
+    const convert_date_format = dt => {
+        let arr = String(dt).split('-');
+        let new_dt = `${arr[2]}.${arr[1]}.${arr[0]}`;
+        return new_dt;
+    };
+
     // init functions
     get_appointments();
 
@@ -160,5 +176,10 @@ document.addEventListener("DOMContentLoaded", e => {
         e.preventDefault();
         let value_chars = 100 - description.textLength;
         document.getElementById('p-description-counter').textContent = `verbleibende Zeichen: ${value_chars}`;
+    });
+
+    btn_post.addEventListener('click', e => {
+        e.preventDefault();
+        post_appointment();
     });
 });
