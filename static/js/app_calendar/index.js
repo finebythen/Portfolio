@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", e => {
     const time_start = document.getElementById('input-time-from');
     const time_end = document.getElementById('input-time-to');
     const description = document.getElementById('textarea-description');
-    const latitude = document.getElementById('input-latitude');
-    const longitude = document.getElementById('input-longitude');
+    let latitude = null;
+    let longitude = null;
 
     // add map, starting coordinates, zoom-level and marker to template
     let myMap = L.map('map').setView([54.793743, 9.446996], 10);
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", e => {
         let coordLng = e.latlng.lng;
         layerGroup.clearLayers();
         L.marker([coordLat, coordLng]).addTo(layerGroup);
-        latitude.value = coordLat;
-        longitude.value = coordLng;
+        latitude = coordLat;
+        longitude = coordLng;
     });
 
     const get_appointments = () => {

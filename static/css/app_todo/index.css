@@ -4,6 +4,8 @@
     --color-mid-beige: #DFD3C3;
     --color-dark-beige: #C7B198;
     --color-mid-purple: #A68DAD;
+    --scrollbarBG: #CFD8DC;
+    --thumbBG: #90A4AE;
 }
 
 .container-header {
@@ -39,6 +41,23 @@ ul > li > p {
 ul > li > .btn-delete-task {
     height: 38px;
     width: 38px;
+}
+
+/* Scrollbar */
+ul::-webkit-scrollbar {
+    width: 11px;
+}
+ul {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+ul::-webkit-scrollbar-track {
+    background: var(--color-mid-beige);
+}
+ul::-webkit-scrollbar-thumb {
+    background-color: var(--color-light-beige);
+    border-radius: 6px;
+    border: 3px solid var(--color-light-beige);
 }
 
 /* Media-Queries */
