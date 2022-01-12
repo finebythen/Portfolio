@@ -36,6 +36,7 @@ label {
 /* Input */
 input[type=date],
 input[type=number],
+input[type=password],
 input[type=text],
 input[type=time],
 select,
