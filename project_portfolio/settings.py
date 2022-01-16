@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'app_calendar.apps.AppCalendarConfig',
     'app_todo.apps.AppTodoConfig',
+    'app_weather.apps.AppWeatherConfig',
     'frontend.apps.FrontendConfig',
 ]
 

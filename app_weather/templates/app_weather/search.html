@@ -1,0 +1,28 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/app_weather/search.css' %}">
+{% endblock link %}
+
+{% block title %}
+    Wetter: Suche
+{% endblock title %}
+
+{% block content %}
+    <div id="background-div">
+        <a href="{% url 'frontend-main' %}" id="sign-back">
+            <i class="bi bi-backspace-fill"></i>
+        </a>
+        <img src="{% static 'img/img-app-weather.jpg' %}" alt="weather-background">
+        <div id="search-box">
+            <form method="post" id="form-search">
+                {% csrf_token %}
+                <input type="text" id="input-search" name="input-search" placeholder="Adresse..." required autocomplete="off">
+                <button class="btn btn-success btn-sm" id="btn-search" name="btn-search">Suchen</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}{% endblock script %}
