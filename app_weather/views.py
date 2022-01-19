@@ -1,11 +1,5 @@
-from django.shortcuts import render, redirect
-import certifi
+from django.shortcuts import render
 import folium
-import ssl
-import geopy.geocoders
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut, GeocoderServiceError
-from django.core.exceptions import ImproperlyConfigured
 import numpy as np
 import pandas as pd
 import requests
@@ -14,26 +8,6 @@ from .api import api_key
 
 URL = "https://api.openweathermap.org/data/2.5/onecall"
 
-# Create your views here.
-def search(request):
-    if request.method == "POST" and "btn-search" in request.POST:
-        search_text = request.POST.get('input-search', None)
-        if search_text is not None and len(search_text) > 0:
-            try:
-                # get coordinates from given address
-                ctx = ssl.create_default_context(cafile=certifi.where())
-                geopy.geocoders.options.default_ssl_context = ctx
-
-                geolocator = Nominatim(scheme='http', user_agent="app_weather")
-                location = geolocator.geocode(search_text, timeout=5)
-                geo_lat, geo_lon = str(location.latitude), str(location.longitude)
-
-                return redirect("app-weather-result", search_text, geo_lat, geo_lon)
-            except (AttributeError, GeocoderTimedOut, GeocoderServiceError, ImproperlyConfigured, KeyError, TypeError) as e:
-                print(f"Error: geocode failed on input with message: {e}")
-                return redirect("app-weather-search")
-
-    return render(request, 'app_weather/search.html')
 
 def result(request, adr, lat, lon):
     # convert geo addresses
@@ -51,16 +25,20 @@ def result(request, adr, lat, lon):
     data = response.json()
 
     # weather alerts
-    dict_alerts = data["alerts"][0]
-    str_alert_from = dict_alerts.get("sender_name", "-")
-    str_alert_event = dict_alerts.get("event", "-")
-    str_alert_msg = dict_alerts.get("description", "-")
+    try:
+        dict_alerts = data["alerts"][0]
+        str_alert_from = dict_alerts.get("sender_name", "-")
+        str_alert_event = dict_alerts.get("event", "-")
+        str_alert_msg = dict_alerts.get("description", "-")
+    except KeyError:
+        str_alert_from, str_alert_event, str_alert_msg = "-", "-", "-"
 
     # convert json to dataframe
     df = pd.json_normalize(data["hourly"])
+    df_header = [item for item in df.columns]
 
     # edit dataframe
-    df["rain.1h"] = df["rain.1h"].replace(np.nan, 0)
+    df["rain.1h"] = df["rain.1h"].replace(np.nan, 0) if "rain.1h" in df_header else 0
 
     # extract needed informations as lists
     l_temp_kelvin = df["temp"].tolist()

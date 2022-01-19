@@ -1,12 +1,35 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
 
-{% block link %}{% endblock link %}
+{% block link %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/app_weather/result.css' %}">
+{% endblock link %}
 
 {% block title %}
     Wetter: Vorhersage
 {% endblock title %}
 
-{% block content %}{% endblock content %}
+{% block content %}
+    <div class="grid-container">
+        <div class="grid-back">
+            <a href="{% url 'frontend-main' %}" id="sign-back">
+                <i class="bi bi-backspace-fill"></i>
+            </a>
+        </div>
+        <div class="grid-address">
+            <h3>{{ address }}</h3>
+        </div>
+        <div class="grid-warning">
+            <div>
+                <h6>{{ alert_from }}: {{ alert_event }}</h6>
+                <marquee behavior="alternate">{{ alert_msg }}</marquee>
+            </div>
+        </div>
+        <div class="grid-temperature"></div>
+        <div class="grid-rain"></div>
+        <div class="grid-wind"></div>
+        <div class="grid-pop"></div>
+    </div>
+{% endblock content %}
 
 {% block script %}{% endblock script %}

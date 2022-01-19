@@ -1,6 +1,8 @@
 "use strict"
 
-document.addEventListener("DOMContentLoaded", e => {
+document.addEventListener("DOMContentLoaded", () => {
+    // variables
+    const icon_scroll = document.getElementById('icon-scroll');
 
     let map_geburtstag = L.map('map-geburtstag').setView([54.685365, 8.564311], 16);
     let map_grundschule = L.map('map-grundschule').setView([54.689599, 8.567505], 16);
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", e => {
     let map_nkn_3 = L.map('map-nkn-3').setView([54.758760, 9.415710], 16);
     let map_nkn_4 = L.map('map-nkn-4').setView([54.758760, 9.415710], 16);
 
+    // add data and coordinates to map-objects
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' }).addTo(map_geburtstag);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' }).addTo(map_grundschule);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' }).addTo(map_isd);
@@ -41,21 +44,10 @@ document.addEventListener("DOMContentLoaded", e => {
     L.marker([54.758760, 9.415710]).addTo(map_nkn_3);
     L.marker([54.758760, 9.415710]).addTo(map_nkn_4);
 
-    const reveal = () => {
-        let reveals = document.querySelectorAll(".reveal");
-
-        for (let i=0; i < reveals.length; i++) {
-            let windowHeight = window.innerHeight;
-            let elementTop = reveals[i].getBoundingClientRect().top;
-            let elementVisible = 150;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            } else {
-                reveals[i].classList.remove("active");
-            };
-        };
-    };
-
-    window.addEventListener("scroll", reveal);
+    // init listeners
+    icon_scroll.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
 });

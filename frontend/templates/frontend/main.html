@@ -6,99 +6,199 @@
 {% endblock link %}
 
 {% block title %}
-    Startseite
+    Portfolio
 {% endblock title %}
 
 {% block content %}
-<div class="grid-container">
-    <div class="tile-name tile-blank">
-        <div>
-            <h1>Finn Morten</h1>
-            <h1>Then</h1>
+    <div class="grid-container">
+        <div class="grid-header">
+            <i class="bi bi-arrow-up-circle-fill" id="icon-scroll"></i>
+            <p>Anwendungs- und Webentwicklung</p>
         </div>
+        <div class="grid-name">
+            <h1>Finn Morten Then</h1>
+        </div>
+        <div class="grid-info">
+            <h4>Services</h4>
+            <p>Anwendungsentwicklung</p>
+            <p>Webentwicklung</p>
+            <h4>Technology</h4>
+            <p>HTML & CSS</p>
+            <p>JavaScript</p>
+            <p>Python</p>
+            <p>C#</p>
+            <p>VBA</p>
+            <p>Django</p>
+            <p>React</p>
+            <p>Node JS</p>
+            <p>PostgreSQL</p>
+            <h4>Contact</h4>
+            <p>finnmortenthen@gmail.com</p>
+        </div>
+        <div class="grid-portfolio">
+            <h1>Resume</h1>
+        </div>
+        <div class="grid-links">
+            <i class="bi bi-github"></i>
+            <i class="bi bi-whatsapp"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-instagram"></i>
+        </div>
+        <div class="grid-app-01 tile-blank tile-flip">
+            <!-- App: Todo-List -->
+            <div class="tile-flip-front">
+                <p>
+                    Seien wir doch ehrlich: Wir alle müssen uns die Dinge des täglichen Lebens aufschreiben...sind ja 
+                    doch viel zu viele!? Warum also nicht gleich hier?
+                </p>
+            </div>
+            <div class="tile-flip-back">
+                <a href="{% url 'app-todo-index' %}">
+                    <i class="bi bi-list-task"></i>
+                    <h1>&#8593</h1>
+                </a>
+            </div>
+        </div>
+        <div class="grid-app-02 tile-blank tile-flip">
+            <!-- App: Weather -->
+            <div class="tile-flip-front">
+                <p>
+                    Du willst wissen, wie das Wetter vor deiner Haustür wird? Wozu extra auf Smartphone schauen!? Mach
+                    es doch direkt auf der anderen Seite!
+                </p>
+            </div>
+            <div class="tile-flip-back">
+                <div class="grid-container-weather">
+                    <div class="grid-icon">
+                        <i class="bi bi-cloud-sun"></i>
+                    </div>
+                    <div class="grid-input">
+                        <form method="post" id="form-weather">
+                            {% csrf_token %}
+                            <input type="text" id="input-weather-location" name="input-weather-location" placeholder="Adresse..." autocomplete="off" required>
+                            <button class="btn btn-success btn-sm" type="submit" id="btn-weather-location" name="btn-weather-location">Suchen</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-app-03">
+            <!-- Resume -->
+            <h3>Geburtstag &#8594</h3>
+            <div class="card card-body">
+                <h5>30.11.1987</h5>
+                <div class="map-leaflet" id="map-geburtstag"></div>
+            </div>
+            <h3>Schulzeit &#8594</h3>
+            <div class="card card-body">
+                <h5>1993-1996</h5>
+                <div class="map-leaflet" id="map-grundschule"></div>
+                <p>Grundschule Wyk auf Föhr</p>
+            </div>
+            <div class="card card-body">
+                <h5>1997</h5>
+                <div class="map-leaflet" id="map-isd"></div>
+                <p>International School of Düsseldorf</p>
+            </div>
+            <div class="card card-body">
+                <h5>1998-2001</h5>
+                <div class="map-leaflet" id="map-gs-foehr"></div>
+                <p>Grundschule Föhr / Amrum</p>
+            </div>
+            <div class="card card-body">
+                <h5>2001-2005</h5>
+                <div class="map-leaflet" id="map-gs-flensburg"></div>
+                <p>Gesamtschule Flensburg (KTS)</p>
+            </div>
+            <h3>Ausbildung &#8594</h3>
+            <div class="card card-body">
+                <h5>2005-2009</h5>
+                <div class="map-leaflet" id="map-pi-1"></div>
+                <p>Technische:r Zeichner:in</p>
+            </div>
+            <h3>Arbeitswelt &#8594</h3>
+            <div class="card card-body">
+                <h5>2009</h5>
+                <div class="map-leaflet" id="map-pi-2"></div>
+                <p>Technische:r Zeichner:in</p>
+            </div>
+            <div class="card card-body">
+                <h5>2010-2011</h5>
+                <div class="map-leaflet" id="map-pk"></div>
+                <p>Teamleiter:in Callcenter</p>
+            </div>
+            <div class="card card-body">
+                <h5>2011-2014</h5>
+                <div class="map-leaflet" id="map-nkn-1"></div>
+                <p>Technische Beratung & Planung</p>
+            </div>
+            <div class="card card-body">
+                <h5>2015</h5>
+                <div class="map-leaflet" id="map-nkn-2"></div>
+                <p>Teamleiter:in & Ausbildung Mitarbeiter:innen</p>
+            </div>
+            <div class="card card-body">
+                <h5>2016-2018</h5>
+                <div class="map-leaflet" id="map-nkn-3"></div>
+                <p>Ausbildung Mitarbeiter:innen & Webentwicklung</p>
+            </div>
+            <div class="card card-body">
+                <h5>2019-...</h5>
+                <div class="map-leaflet" id="map-nkn-4"></div>
+                <p>Anwendungs- & Webentwicklung</p>
+            </div>
+        </div>
+        <div class="grid-app-04">
+            <!-- App: Calendar -->
+            <div>
+                <i class="bi bi-calendar-date"></i>
+            </div>
+            <div>
+                <a href="{% url 'app-calendar-index' %}">Kalender</a>
+            </div>
+        </div>
+        <div class="grid-app-05">
+            <!-- App: Calculator -->
+            <div>
+                <i class="bi bi-calculator"></i>
+            </div>
+            <div>
+                <a href="#">Taschenrechner</a>
+            </div>
+        </div>
+        <div class="grid-app-06">
+            <!-- App: Machine Learning -->
+            <div>
+                <i class="bi bi-gear"></i>
+            </div>
+            <div>
+                <a href="#">Machine Learning</a>
+            </div>
+        </div>
+        <div class="grid-app-07">
+            <!-- App: Shop -->
+            <div>
+                <i class="bi bi-cart"></i>
+            </div>
+            <div>
+                <a href="#">Shop</a>
+            </div>
+        </div>
+        <div class="grid-app-08">
+            <!-- App: Shop -->
+            <div>
+                <i class="bi bi-controller"></i>
+            </div>
+            <div>
+                <a href="#">Game</a>
+            </div>
+        </div>
+        <div class="grid-app-09"></div>
+        <div class="grid-empty-01"></div>
     </div>
-    <div class="tile-resume tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-person-circle"></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-resume" href="{% url 'frontend-resume' %}">Lebenslauf</a>
-        </div>
-    </div>
-    <div class="tile-languages tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-folder"></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-languages" href="{% url 'frontend-languages' %}">Sprachen</a>
-        </div>
-    </div>
-    <div class="tile-todo tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-clipboard-check"></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-todo" href="{% url 'app-todo-index' %}">To-Do</a>
-        </div>
-    </div>
-    <div class="tile-calendar tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-calendar-date"></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-calendar" href="{% url 'app-calendar-index' %}">Calendar</a>
-        </div>
-    </div>
-    <div class="tile-calculator tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-calculator"></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-calculator" href="#">Calculator</a>
-        </div>
-    </div>
-    <div class="tile-weather tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-cloud-sun"></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-weather" href="{% url 'app-weather-search' %}">Weather</a>
-        </div>
-    </div>
-    <div class="tile-tetris tile-blank tile-flip">
-        <div class="tile-flip-front">
-            <i class="bi bi-controller"> <span id="game-number-01">#1</span></i>
-        </div>
-        <div class="tile-flip-back">
-            <a id="link-tetris" href="#">Game #1</a>
-        </div>
-    </div>
-    <div class="tile-01 tile-blank"></div>
-    <div class="tile-02 tile-blank"></div>
-    <div class="tile-03 tile-blank"></div>
-    <div class="tile-04 tile-blank"></div>
-    <div class="tile-05 tile-blank"></div>
-    <div class="tile-06"></div>
-    <div class="tile-07 tile-blank"></div>
-    <div class="tile-08"></div>
-    <div class="tile-09 tile-blank"></div>
-    <div class="tile-10 tile-blank"></div>
-    <div class="tile-11 tile-blank"></div>
-    <div class="tile-12 tile-blank"></div>
-    <div class="tile-13"></div>
-    <div class="tile-14 tile-blank"></div>
-    <div class="tile-15"></div>
-    <div class="tile-16 tile-blank"></div>
-    <div class="tile-17"></div>
-    <div class="tile-18"></div>
-    <div class="tile-19"></div>
-    <div class="tile-20 tile-blank"></div>
-    <div class="tile-21"></div>
-    <div class="tile-22 tile-blank"></div>
-    <div class="tile-23"></div>
-    <div class="tile-24 tile-blank"></div>
-    <div class="tile-25 tile-blank"></div>
-</div>
 {% endblock content %}
 
-{% block script %}{% endblock script %}
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/frontend/main.js' %}"></script>
+{% endblock script %}

@@ -1,0 +1,55 @@
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 16px;
+    grid-template-areas:
+        "grid-back grid-address grid-address grid-address grid-address grid-address grid-address grid-address"
+        "grid-empty-left grid-warning grid-warning grid-warning grid-warning grid-warning grid-warning grid-empty-right"
+        "grid-temperature grid-temperature grid-temperature grid-temperature grid-rain grid-rain grid-rain grid-rain"
+        "grid-temperature grid-temperature grid-temperature grid-temperature grid-rain grid-rain grid-rain grid-rain"
+        "grid-temperature grid-temperature grid-temperature grid-temperature grid-rain grid-rain grid-rain grid-rain"
+        "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop"
+        "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop"
+        "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop";
+}
+.grid-back { grid-area: grid-back; }
+.grid-address {
+    grid-area: grid-address;
+    text-align: right;
+}
+.grid-warning { grid-area: grid-warning; }
+.grid-temperature { grid-area: grid-temperature; }
+.grid-rain { grid-area: grid-rain; }
+.grid-wind { grid-area: grid-wind; }
+.grid-pop { grid-area: grid-pop; }
+.grid-empty-left { grid-area: grid-empty-left; }
+.grid-empty-right { grid-area: grid-empty-right; }
+
+.grid-address > h3 {
+    margin: auto 16px;
+}
+
+.grid-warning > div {
+    max-width: 1200px;
+    border: 1px solid var(--color-dark-beige);
+    border-radius: 16px;
+    background-color: var(--color-dark-beige);
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.grid-warning > div > h6 {
+    margin: 16px 0;
+}
+
+#sign-back {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+}
+#sign-back > i {
+    font-size: 24px;
+    color: var(--color-mid-purple) !important;
+}

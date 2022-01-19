@@ -1,153 +1,269 @@
-/* Root */
-:root {
-    --color-light-beige: #F0ECE3;
-    --color-mid-beige: #DFD3C3;
-    --color-dark-beige: #C7B198;
-    --color-mid-purple: #A68DAD;
-    --tile-size-1: 12.5vh;
-    --tile-size-2: 25vh;
-    --tile-size-3: 37.5vh;
-    --tile-i-size-1: 50px;
-    --tile-i-size-2: 100px;
-    --tile-i-size-3: 150px;
+html {
+    scroll-behavior: smooth;
 }
 
 /* Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.05fr 1fr 1fr 0.05fr 0.5fr 1fr 0.25fr;
     gap: 16px;
     margin: 16px;
     grid-template-areas:
-    "tile-01 tile-01 tile-02 tile-03 tile-04 tile-name tile-name tile-name"
-    "tile-01 tile-01 tile-02 tile-03 tile-04 tile-name tile-name tile-name"
-    "tile-05 tile-resume tile-resume tile-03 tile-04 tile-name tile-name tile-name"
-    "tile-05 tile-resume tile-resume tile-03 tile-04 tile-11 tile-11 tile-11"
-    "tile-05 tile-06 tile-languages tile-languages tile-languages tile-11 tile-11 tile-11"
-    "tile-07 tile-07 tile-languages tile-languages tile-languages tile-12 tile-12 tile-13"
-    "tile-07 tile-07 tile-languages tile-languages tile-languages tile-12 tile-12 tile-13"
-    "tile-07 tile-07 tile-08 tile-09 tile-10 tile-todo tile-todo tile-todo"
-    "tile-14 tile-15 tile-calendar tile-calendar tile-16 tile-17 tile-calculator tile-calculator"
-    "tile-weather tile-18 tile-calendar tile-calendar tile-16 tile-17 tile-calculator tile-calculator"
-    "tile-19 tile-20 tile-tetris tile-tetris tile-23 tile-23 tile-24 tile-25"
-    "tile-19 tile-20 tile-21 tile-22 tile-23 tile-23 tile-24 tile-25";
+        "grid-header grid-header grid-header grid-header grid-header grid-header"
+        "grid-name grid-name grid-name grid-name grid-name grid-name"
+        "grid-app-01 grid-app-01 grid-app-02 grid-app-02 grid-empty-01 grid-info"
+        "grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-empty-01 grid-info"
+        "grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03"
+        "grid-app-04 grid-app-05 grid-app-06 grid-app-07 grid-app-08 grid-app-09"
+        "grid-links grid-links grid-links grid-links grid-links grid-links";
 }
-.tile-name { grid-area: tile-name; }
-.tile-resume { grid-area: tile-resume; }
-.tile-languages { grid-area: tile-languages; }
-.tile-todo { grid-area: tile-todo; }
-.tile-calendar { grid-area: tile-calendar; }
-.tile-calculator { grid-area: tile-calculator; }
-.tile-tetris { grid-area: tile-tetris; }
-.tile-01 { grid-area: tile-01; }
-.tile-02 { grid-area: tile-02; }
-.tile-03 { grid-area: tile-03; }
-.tile-04 { grid-area: tile-04; }
-.tile-05 { grid-area: tile-05; }
-.tile-06 { grid-area: tile-06; }
-.tile-07 { grid-area: tile-07; }
-.tile-08 { grid-area: tile-08; }
-.tile-09 { grid-area: tile-09; }
-.tile-10 { grid-area: tile-10; }
-.tile-11 { grid-area: tile-11; }
-.tile-12 { grid-area: tile-12; }
-.tile-13 { grid-area: tile-13; }
-.tile-14 { grid-area: tile-14; }
-.tile-15 { grid-area: tile-15; }
-.tile-16 { grid-area: tile-16; }
-.tile-17 { grid-area: tile-17; }
-.tile-18 { grid-area: tile-18; }
-.tile-19 { grid-area: tile-19; }
-.tile-20 { grid-area: tile-20; }
-.tile-21 { grid-area: tile-21; }
-.tile-22 { grid-area: tile-22; }
-.tile-23 { grid-area: tile-23; }
-.tile-24 { grid-area: tile-24; }
-.tile-25 { grid-area: tile-25; }
+.grid-header {
+    grid-area: grid-header;
+    position: relative;
+}
+.grid-name {
+    grid-area: grid-name;
+    position: relative;
+    height: 70vh;
+}
+.grid-info {
+    grid-area: grid-info;
+    border-left: 2px solid var(--color-mid-purple);
+}
+.grid-portfolio { grid-area: grid-portfolio; }
+.grid-links { grid-area: grid-links; }
+.grid-app-01 { grid-area: grid-app-01; }
+.grid-app-02 { grid-area: grid-app-02; }
+.grid-app-03 { grid-area: grid-app-03; }
+.grid-app-04 { grid-area: grid-app-04; }
+.grid-app-05 { grid-area: grid-app-05; }
+.grid-app-06 { grid-area: grid-app-06; }
+.grid-app-07 { grid-area: grid-app-07; }
+.grid-app-08 { grid-area: grid-app-08; }
+.grid-app-09 { grid-area: grid-app-09; }
+.grid-empty-01 { grid-area: grid-empty-01; }
 
-.tile-01 {
-    height: var(--tile-size-2);
-    width: var(--tile-size-2);
+.grid-app-01,
+.grid-app-02,
+.grid-info {
+    height: 60vh;
 }
-.tile-tetris,
-.tile-todo,
-.tile-01,
-.tile-02,
-.tile-04,
-.tile-07,
-.tile-11 {
-    background-color: var(--color-mid-beige);
-}
-.tile-languages,
-.tile-resume,
-.tile-weather,
-.tile-03,
-.tile-10,
-.tile-16,
-.tile-22,
-.tile-25 {
-    background-color: var(--color-dark-beige);
-}
-.tile-calendar,
-.tile-name,
-.tile-05,
-.tile-09,
-.tile-12,
-.tile-14,
-.tile-24 {
-    background-color: var(--color-mid-purple);
-}
-
-.tile-calculator
-.tile-calendar
-.tile-languages,
-.tile-name,
-.tile-resume,
-.tile-teris,
-.tile-todo,
-.tile-weather {
+.grid-app-01,
+.grid-app-02 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
-.tile-calculator > div,
-.tile-calendar > div,
-.tile-languages > div,
-.tile-name > div,
-.tile-resume > div,
-.tile-tetris > div,
-.tile-todo > div,
-.tile-weather > div {
-    text-align: center;
+
+.grid-header > i {
+    position: fixed;
+    top: 9px;
+    left: 22px;
+    z-index: 10;
+    color: var(--color-mid-purple);
+    margin-right: 16px;
+    font-size: 24px;
+    cursor: pointer;
 }
-.tile-calendar > div > h1,
-.tile-languages > div > h1,
-.tile-name > div > h1,
-.tile-resume > div > h1,
-.tile-tetris > div > h1,
-.tile-todo > div > h1 {
-    color: #fff;
+.grid-header > p {
+    margin: 0 0 25px 50px;
     font-weight: 700;
 }
-.tile-weather > .tile-flip-front > i {
-    color: var(--color-light-beige) !important;
-    font-size: var(--tile-i-size-1);
+
+.grid-name > h1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 32px;
+    margin-bottom: 50px;
+    font-size: 125px;
+    font-weight: 700;
 }
-.tile-calendar > .tile-flip-front > i,
-.tile-languages > .tile-flip-front > i,
-.tile-resume > .tile-flip-front > i {
-    color: var(--color-light-beige) !important;
-    font-size: var(--tile-i-size-2);
+
+.grid-info {
+    padding-left: 16px;
 }
-.tile-tetris > .tile-flip-front > i,
-.tile-todo > .tile-flip-front > i {
-    color: var(--color-mid-purple) !important;
-    font-size: var(--tile-i-size-1);
+.grid-info > h4 {
+    margin-bottom: 16px;
 }
-.tile-calculator > .tile-flip-front > i {
-    color: var(--color-mid-purple) !important;
-    font-size: var(--tile-i-size-2);
+.grid-info > h4:nth-child(1),
+.grid-info > h4:nth-child(4),
+.grid-info > h4:nth-child(13) {
+    margin-top: 32px;
+}
+.grid-info > p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.grid-container-weather {
+    height: 100%;
+    width: 100%;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "grid-icon"
+        "grid-input";
+}
+.grid-icon { grid-area: grid-icon; }
+.grid-input { grid-area: grid-input; }
+.grid-icon,
+.grid-input > form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.grid-input > form > input[type=text],
+.grid-input > form > button {
+    margin: 0 8px;
+    height: 42px;
+    border-radius: 16px;
+}
+.grid-input > form > button {
+    min-width: 70px;
+}
+.grid-icon > i,
+.grid-icon > a > i {
+    font-size: 100px;
+    color: var(--color-mid-purple);
+}
+
+.grid-portfolio > h1 {
+    margin: 0;
+    font-size: 90px;
+    font-weight: 700;
+}
+
+.grid-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.grid-links > i {
+    margin: 16px;
+    font-size: 50px;
+    color: var(--color-mid-purple);
+}
+
+.grid-app-01,
+.grid-app-01 > .card-body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.grid-app-01 > .card-body {
+    height: 100%;
+    width: 100%;
+}
+.grid-app-01,
+.grid-app-02 {
+    background-color: var(--color-mid-beige);
+}
+.grid-app-03 {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.grid-app-03 > h3 {
+    margin: 0 64px 0 32px;
+}
+.grid-app-03 > .card {
+    margin-right: 32px;
+    height: 100% !important;
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+    text-align: center;
+}
+.grid-app-03 > .card > p {
+    margin: 8px 0;
+}
+
+.grid-app-04,
+.grid-app-05,
+.grid-app-06,
+.grid-app-07,
+.grid-app-08 {
+    border-right: 2px solid var(--color-mid-purple);
+}
+.grid-app-04 > div:nth-child(1),
+.grid-app-05 > div:nth-child(1),
+.grid-app-06 > div:nth-child(1),
+.grid-app-07 > div:nth-child(1),
+.grid-app-08 > div:nth-child(1),
+.grid-app-09 > div:nth-child(1) {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.grid-app-04 > div:nth-child(2),
+.grid-app-05 > div:nth-child(2),
+.grid-app-06 > div:nth-child(2),
+.grid-app-07 > div:nth-child(2),
+.grid-app-08 > div:nth-child(2),
+.grid-app-09 > div:nth-child(2) {
+    width: 100%;
+    height: 15%;
+    text-align: center;
+}
+.grid-app-04 > div > i,
+.grid-app-05 > div > i,
+.grid-app-06 > div > i,
+.grid-app-07 > div > i,
+.grid-app-08 > div > i,
+.grid-app-09 > div > i {
+    font-size: 75px;
+    color: var(--color-mid-purple);
+}
+.grid-app-04 > div > a:link,
+.grid-app-04 > div > a:visited,
+.grid-app-04 > div > a:active,
+.grid-app-05 > div > a:link,
+.grid-app-05 > div > a:visited,
+.grid-app-05 > div > a:active,
+.grid-app-06 > div > a:link,
+.grid-app-06 > div > a:visited,
+.grid-app-06 > div > a:active,
+.grid-app-07 > div > a:link,
+.grid-app-07 > div > a:visited,
+.grid-app-07 > div > a:active,
+.grid-app-08 > div > a:link,
+.grid-app-08 > div > a:visited,
+.grid-app-08 > div > a:active,
+.grid-app-09 > div > a:link,
+.grid-app-09 > div > a:visited,
+.grid-app-09 > div > a:active {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+}
+.grid-app-04 > div > a:hover,
+.grid-app-05 > div > a:hover,
+.grid-app-06 > div > a:hover,
+.grid-app-07 > div > a:hover,
+.grid-app-08 > div > a:hover,
+.grid-app-09 > div > a:hover {
+    font-size: 24px;
+}
+
+/* Map */
+.map-leaflet {
+    height: 100%;
+    border: 1px solid var(--color-mid-beige);
+    border-radius: 8px;
 }
 
 /* Flip-Animations */
@@ -155,8 +271,8 @@
     position: relative;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     border-radius: 10px;
     transform-style: preserve-3d;
     transition: all 0.8s ease;
@@ -179,6 +295,12 @@
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
+    text-align: center;
+    padding: 0 32px;
+}
+.tile-flip-front > p {
+    margin: 0;
+    font-size: 20px;
 }
 .tile-flip-back {
     position: absolute;
@@ -196,26 +318,33 @@
 .tile-flip-back > a:visited,
 .tile-flip-back > a:hover,
 .tile-flip-back > a:active {
-    font-family: var(--google-font-sora);
     text-decoration: none;
-    font-size: 24px;
 }
-
-/* Link */
-#link-weather,
-#link-calendar,
-#link-resume,
-#link-languages {
-    color: var(--color-light-beige);
-}
-#link-calculator,
-#link-tetris,
-#link-todo {
+.tile-flip-back > a > i,
+.tile-flip-back > a > h1 {
     color: var(--color-mid-purple);
 }
+.tile-flip-back > a > i {
+    font-size: 100px;
+}
 
-/* Span */
-#game-number-01 {
-    margin: auto 0;
-    font-size: 24px;
+/* Scrollbar */
+body::-webkit-scrollbar,
+.grid-app-03::-webkit-scrollbar {
+    width: 11px;
+}
+body,
+.grid-app-03 {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track,
+.grid-app-03::-webkit-scrollbar-track {
+    background: var(--color-mid-beige);
+}
+body::-webkit-scrollbar-thumb,
+.grid-app-03::-webkit-scrollbar-thumb {
+    background-color: var(--color-mid-purple);
+    border-radius: 6px;
+    border: 3px solid var(--color-mid-purple);
 }
