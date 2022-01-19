@@ -1,0 +1,37 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_grocery_store/index.css' %}">
+{% endblock link %}
+
+{% block title %}
+    App: Einkaufsliste
+{% endblock title %}
+
+{% block content %}
+    <div class="container-header">
+        <a href="{% url 'frontend-main' %}">
+            <i class="bi bi-backspace-fill"></i>
+        </a>
+    </div>
+    <div class="container">
+        <div class="card card-body">
+            <div class="card-header">
+                <form id="form-store">
+                    <input type="text" id="input-store" placeholder="Einkauf..." autocomplete="off" required>
+                    <button class="btn btn-success" id="btn-post-store" type="button">
+                        <i class="bi bi-clipboard-plus"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="card-body">
+                <ul id="ulist-store"></ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/app_grocery_store/index.js' %}"></script>
+{% endblock script %}

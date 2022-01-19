@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'app_calendar.apps.AppCalendarConfig',
+    'app_grocery_store.apps.AppGroceryStoreConfig',
     'app_todo.apps.AppTodoConfig',
     'app_weather.apps.AppWeatherConfig',
     'frontend.apps.FrontendConfig',

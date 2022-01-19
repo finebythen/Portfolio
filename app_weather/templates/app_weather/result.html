@@ -25,11 +25,60 @@
                 <marquee behavior="alternate">{{ alert_msg }}</marquee>
             </div>
         </div>
-        <div class="grid-temperature"></div>
-        <div class="grid-rain"></div>
-        <div class="grid-wind"></div>
-        <div class="grid-pop"></div>
+        <div class="grid-temperature">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Temperaturen</h6>
+                    <i class="bi bi-thermometer-half"></i>
+                </div>
+                <div class="card-body">
+                    <div id="chart-temperature"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-rain">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Niederschlagsmengen in mm</h6>
+                    <i class="bi bi-cloud-drizzle"></i>
+                </div>
+                <div class="card-body">
+                    <div id="chart-rain"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-wind">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Windgeschwindigkeiten in km/h</h6>
+                    <i class="bi bi-wind"></i>
+                </div>
+                <div class="card-body">
+                    <div id="chart-wind"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-pop">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Niederschlagswahrscheinlichkeit in %</h6>
+                    <i class="bi bi-umbrella"></i>
+                </div>
+                <div class="card-body">
+                    <div id="chart-precipitation"></div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}
 
-{% block script %}{% endblock script %}
+{% block script %}
+    <script>
+        const arr_temperature = {{ temp_celcius|safe }};
+        const arr_rain = {{ rain_amount|safe }};
+        const arr_wind = {{ wind_speed|safe }};
+        const arr_hours = {{ l_list_hours|safe }};
+        const arr_pop = {{ pop|safe }};
+    </script>
+    <script type="text/javascript" src="{% static 'js/app_weather/result.js' %}"></script>
+{% endblock script %}

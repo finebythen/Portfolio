@@ -5,6 +5,7 @@ import pandas as pd
 import requests
 
 from .api import api_key
+from .functions import get_list_hours
 
 URL = "https://api.openweathermap.org/data/2.5/onecall"
 
@@ -43,28 +44,24 @@ def result(request, adr, lat, lon):
     # extract needed informations as lists
     l_temp_kelvin = df["temp"].tolist()
     l_temp_celcius = [ele - 273.15 for ele in l_temp_kelvin]
+    l_temp_celcius = [round(item, 0) for item in l_temp_celcius]
     l_rain_amount = df["rain.1h"].tolist()
     l_wind_speed = df["wind_speed"].tolist()
+    l_wind_speed = [int(round(item * 3.6, 0)) for item in l_wind_speed]
     l_pop = df["pop"].tolist()
     l_pop = [int(round(ele * 100, 0)) for ele in l_pop]
+
+    # create list of next 48 hours
+    l_list_hours = get_list_hours()
 
     # create map (folium) and add marker
     m = folium.Map(location=[geo_lat, geo_lon], zoom_start=14, control_scale=True)
     folium.Marker([geo_lat, geo_lon], popup=adr).add_to(m)
     m = m._repr_html_()
 
-    print(str_alert_from)
-    print(str_alert_event)
-    print(str_alert_msg)
-    print(l_temp_celcius)
-    print(l_rain_amount)
-    print(l_wind_speed)
-    print(l_pop)
-    print(adr)
-
     context = {
         "alert_from": str_alert_from, "alert_event": str_alert_event, "alert_msg": str_alert_msg, "map": m,
         "temp_celcius": l_temp_celcius, "rain_amount": l_rain_amount, "wind_speed": l_wind_speed, "pop": l_pop,
-        "address": adr,
+        "address": adr, "l_list_hours": l_list_hours
     }
     return render(request, 'app_weather/result.html', context)

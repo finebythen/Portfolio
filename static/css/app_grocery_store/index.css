@@ -1,0 +1,64 @@
+/* Root */
+:root {
+    --scrollbarBG: #CFD8DC;
+    --thumbBG: #90A4AE;
+}
+
+.container-header {
+    padding: 1rem;
+}
+
+.card-header {
+    background-color: var(--color-mid-beige);
+}
+
+#form-store {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    height: 60vh;
+    margin: 0;
+    padding: 0;
+}
+ul > li {
+    margin: 16px;
+    background-color: var(--color-dark-beige);
+    border: 1px solid var(--color-dark-beige);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+ul > li > p {
+    margin: 0 16px;
+}
+ul > li > .btn-delete-task {
+    height: 38px;
+    width: 38px;
+}
+
+/* Scrollbar */
+ul::-webkit-scrollbar {
+    width: 11px;
+}
+ul {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+ul::-webkit-scrollbar-track {
+    background: var(--color-mid-beige);
+}
+ul::-webkit-scrollbar-thumb {
+    background-color: var(--color-light-beige);
+    border-radius: 6px;
+    border: 3px solid var(--color-light-beige);
+}
+
+/* Media-Queries */
+@media only screen and (max-width: 1960px) {
+    .container {
+        width: 750px;
+    }
+}
