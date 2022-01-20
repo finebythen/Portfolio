@@ -41,6 +41,9 @@ def result(request, adr, lat, lon):
     # edit dataframe
     df["rain.1h"] = df["rain.1h"].replace(np.nan, 0) if "rain.1h" in df_header else 0
 
+    # filter for 24 instead of given 48 hours
+    df = df.head(24)
+
     # extract needed informations as lists
     l_temp_kelvin = df["temp"].tolist()
     l_temp_celcius = [ele - 273.15 for ele in l_temp_kelvin]
@@ -52,6 +55,7 @@ def result(request, adr, lat, lon):
     l_pop = [int(round(ele * 100, 0)) for ele in l_pop]
 
     # create list of next 48 hours
+    # l_list_hours = get_list_hours()
     l_list_hours = get_list_hours()
 
     # create map (folium) and add marker
@@ -62,6 +66,6 @@ def result(request, adr, lat, lon):
     context = {
         "alert_from": str_alert_from, "alert_event": str_alert_event, "alert_msg": str_alert_msg, "map": m,
         "temp_celcius": l_temp_celcius, "rain_amount": l_rain_amount, "wind_speed": l_wind_speed, "pop": l_pop,
-        "address": adr, "l_list_hours": l_list_hours
+        "address": adr, "l_list_hours": l_list_hours, "geo_lat": geo_lat, "geo_lon": geo_lon
     }
     return render(request, 'app_weather/result.html', context)

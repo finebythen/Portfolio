@@ -19,14 +19,14 @@
         <div class="grid-address">
             <h3>{{ address }}</h3>
         </div>
-        <div class="grid-empty-left"></div>
-        <div class="grid-empty-right"></div>
         <div class="grid-warning">
             <div>
                 <h6>{{ alert_from }}: {{ alert_event }}</h6>
                 <marquee behavior="alternate">{{ alert_msg }}</marquee>
             </div>
         </div>
+        <div class="grid-empty-left"></div>
+        <div class="grid-empty-right"></div>
         <div class="grid-temperature">
             <div class="card">
                 <div class="card-header">
@@ -35,6 +35,17 @@
                 </div>
                 <div class="card-body">
                     <div id="chart-temperature"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-map">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Karte</h6>
+                    <i class="bi bi-globe"></i>
+                </div>
+                <div class="card-body">
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
@@ -84,6 +95,10 @@
         const arr_wind = {{ wind_speed|safe }};
         const arr_hours = {{ l_list_hours|safe }};
         const arr_pop = {{ pop|safe }};
+        const geo_lat = {{ geo_lat|safe }};
+        const geo_lon = {{ geo_lon|safe }};
+
+        console.log(geo_lat, geo_lon);
     </script>
     <script type="text/javascript" src="{% static 'js/app_weather/result.js' %}"></script>
 {% endblock script %}

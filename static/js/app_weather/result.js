@@ -1,8 +1,13 @@
 "use strict"
 
 document.addEventListener("DOMContentLoaded", e => {
-
+    // variables
     const chart_height = 350;
+
+    // map -> add data and coordinates to map-objects -> set marker on map
+    let map = L.map('map').setView([geo_lat, geo_lon], 16);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+    L.marker([geo_lat, geo_lon]).addTo(map);
 
     // chart temperature
     let options_temperature = {

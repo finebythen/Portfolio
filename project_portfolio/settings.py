@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 
+    'app_calculator.apps.AppCalculatorConfig',
     'app_calendar.apps.AppCalendarConfig',
     'app_grocery_store.apps.AppGroceryStoreConfig',
     'app_todo.apps.AppTodoConfig',
