@@ -2,7 +2,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 0.5fr 1fr 1fr 0.5fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.5fr 0.5fr 1fr 1fr 0.5fr 1fr 1fr 0.5fr 0.1fr;
     gap: 16px;
     margin: 16px;
     grid-template-areas:
@@ -13,7 +13,8 @@
         "grid-temperature grid-temperature grid-temperature grid-temperature grid-rain grid-rain grid-rain grid-rain"
         "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop"
         "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop"
-        "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop";
+        "grid-wind grid-wind grid-wind grid-wind grid-pop grid-pop grid-pop grid-pop"
+        "grid-copy grid-copy grid-copy grid-copy grid-copy grid-copy grid-copy grid-copy";
 }
 .grid-back { grid-area: grid-back; }
 .grid-address {
@@ -25,6 +26,12 @@
 .grid-rain { grid-area: grid-rain; }
 .grid-wind { grid-area: grid-wind; }
 .grid-pop { grid-area: grid-pop; }
+.grid-copy {
+    grid-area: grid-copy;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .grid-empty-left { grid-area: grid-empty-left; }
 .grid-empty-right { grid-area: grid-empty-right; }
 

@@ -15,19 +15,3 @@ class EinkaufslisteSerializer_POST(ModelSerializer):
         fields = [
             'beschreibung',
         ]
-
-
-class EinkaufslisteSerializer_Anzahl_PUT(ModelSerializer):
-    class Meta:
-        model = Einkaufsliste
-        fields = [
-            'anzahl',
-        ]
-
-
-class EinkaufslisteSerializer_Erledigt_PUT(ModelSerializer):
-    class Meta:
-        model = Einkaufsliste
-        fields = [
-            'erledigt',
-        ]

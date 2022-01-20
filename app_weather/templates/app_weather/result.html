@@ -19,6 +19,8 @@
         <div class="grid-address">
             <h3>{{ address }}</h3>
         </div>
+        <div class="grid-empty-left"></div>
+        <div class="grid-empty-right"></div>
         <div class="grid-warning">
             <div>
                 <h6>{{ alert_from }}: {{ alert_event }}</h6>
@@ -68,6 +70,9 @@
                     <div id="chart-precipitation"></div>
                 </div>
             </div>
+        </div>
+        <div class="grid-copy">
+            <p>Die Wetterdaten werden bereitgestellt von <a href="https://openweathermap.org/" target="_blank">openweathermap.org</a>.</p>
         </div>
     </div>
 {% endblock content %}

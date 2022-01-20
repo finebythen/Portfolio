@@ -8,6 +8,13 @@
     padding: 1rem;
 }
 
+.container {
+    width: 50vw !important;
+}
+.container > .card {
+    min-width: 550px;
+}
+
 .card-header {
     background-color: var(--color-mid-beige);
 }
@@ -34,9 +41,30 @@ ul > li {
 ul > li > p {
     margin: 0 16px;
 }
-ul > li > .btn-delete-task {
-    height: 38px;
-    width: 38px;
+ul > li > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul > li > div > button {
+    margin: 8px;
+    height: 28px;
+    width: 50px;
+}
+
+.p-text {
+    white-space: nowrap;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Button & Link */
+#btn-xls-store {
+    margin: 8px 16px;
+    height: 42px;
+    min-width: 50px;
+    width: 100px;
 }
 
 /* Scrollbar */
@@ -60,5 +88,25 @@ ul::-webkit-scrollbar-thumb {
 @media only screen and (max-width: 1960px) {
     .container {
         width: 750px;
+    }
+}
+@media only screen and (max-width: 1550px) {
+    .p-text {
+        width: 250px;
+    }
+}
+@media only screen and (max-width: 1420px) {
+    .p-text {
+        width: 200px;
+    }
+}
+@media only screen and (max-width: 1330px) {
+    .p-text {
+        width: 150px;
+    }
+}
+@media only screen and (max-width: 1230px) {
+    .p-text {
+        width: 100px;
     }
 }

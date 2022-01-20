@@ -11,7 +11,7 @@ class Einkaufsliste(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['beschreibung']
+        ordering = ['erledigt', 'beschreibung']
 
     def __str__(self) -> str:
         return self.beschreibung
