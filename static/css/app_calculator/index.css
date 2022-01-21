@@ -31,7 +31,7 @@
 .grid-container-calculator {
     display: grid;
   grid-template-columns: 1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.5fr 1fr;
-  grid-template-rows: 1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 1fr 1fr;
+  grid-template-rows: 0.25fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.25fr 0.25fr;
   gap: var(--button-gap);
   grid-template-areas:
     "grid-empty-top grid-empty-top grid-empty-top grid-empty-top grid-empty-top grid-empty-top grid-empty-top"
@@ -109,18 +109,20 @@
     border-radius: var(--button-radius);
     box-shadow: var(--button-shadow);
     text-align: right;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 .grid-display > #field-display-p {
-    margin: 0 16px 0 0;
+    margin: 0 16px 4px 0;
     color: var(--color-light-beige);
-    font-size: 24px;
+    font-size: 22px;
+}
+.grid-display > #field-display-p-small {
+    margin: 4px 16px 4px 0;
+    color: var(--color-light-beige);
+    font-size: 12px;
 }
 
 .grid-history {
-    height: 100%;
+    height: 470px;
     min-width: 300px;
     display: block;
     overflow-x: hidden;
@@ -129,6 +131,18 @@
     background-color: var(--color-mid-beige);
     border-radius: var(--button-radius);
     box-shadow: var(--button-shadow);
+}
+.grid-history > .card-body {
+    margin: 8px 16px;
+    text-align: right;
+}
+.grid-history > .card-body > .p-calc {
+    margin: 0;
+    font-size: 12px;
+}
+.grid-history > .card-body > .p-result {
+    margin: 0;
+    font-weight: 700;
 }
 
 /* Scrollbar */

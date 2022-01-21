@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", e => {
     // variables
     let display_text = "";
+    let display_text_small = "";
     let arr_calc = [];
 
     const btn_0 = document.getElementById('btn-0');
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", e => {
     const btn_root = document.getElementById('btn-root');
 
     const field_display = document.getElementById('field-display-p');
+    const field_display_small = document.getElementById('field-display-p-small');
     const field_history = document.getElementById('field-history');
 
     let arr_objects = [
@@ -57,6 +59,27 @@ document.addEventListener("DOMContentLoaded", e => {
         return cleaned_arr;
     };
 
+    const add_history = (arr, result) => {
+        let result_calc = arr.join(' ');
+
+        let fragment = document.createDocumentFragment();
+        let card = document.createElement('div');
+        let p_calc = document.createElement('p');
+        let p_result = document.createElement('p');
+
+        card.setAttribute('class', 'card card-body card-history');
+        p_calc.setAttribute('class', 'p-calc');
+        p_calc.innerText = result_calc;
+        p_result.setAttribute('class', 'p-result');
+        p_result.innerText = result;
+
+        card.appendChild(p_calc);
+        card.appendChild(p_result);
+
+        fragment.append(card);
+        field_history.append(fragment);
+    };
+
     // init listeners
     for (let i=0; i < arr_objects.length; i++) {
         arr_objects[i].addEventListener('click', e => {
@@ -78,8 +101,9 @@ document.addEventListener("DOMContentLoaded", e => {
             arr_calc.push(arr_btn_calc[i].innerText);
             arr_calc = clean_array(arr_calc, "calc");
             display_text = "";
+            display_text_small = arr_calc.join(' ');
             field_display.innerText = display_text;
-            console.log(arr_calc);
+            field_display_small.innerText = display_text_small;
         });
     };
 
@@ -87,7 +111,9 @@ document.addEventListener("DOMContentLoaded", e => {
         e.preventDefault();
         arr_calc.length = 0;
         display_text = "";
+        display_text_small = "";
         field_display.innerText = display_text;
+        field_display_small.innerText = display_text_small;
     });
 
     btn_equal.addEventListener('click', e => {
@@ -104,7 +130,12 @@ document.addEventListener("DOMContentLoaded", e => {
         // calculate from string
         let result = eval(calc_string);
         display_text = result;
+        display_text_small = "Result:";
         field_display.innerText = display_text;
+        field_display_small.innerText = display_text_small;
+
+        // add data to history-field
+        add_history(arr_calc, result);
 
         // reset array
         arr_calc.length = 0;
@@ -112,44 +143,20 @@ document.addEventListener("DOMContentLoaded", e => {
 
     btn_root.addEventListener('click', e => {
         e.preventDefault();
-        // Do something
-    });
 
-    document.addEventListener('keyup', e => {
-        let name = e.key;
-        if (name === "1") {
-            console.log("Key: 1", typeof(name));
-        } else if (name === "2") {
-            // Do something
-        } else if (name === "3") {
-            // Do something
-        } else if (name === "4") {
-            // Do something
-        } else if (name === "5") {
-            // Do something
-        } else if (name === "6") {
-            // Do something
-        } else if (name === "7") {
-            // Do something
-        } else if (name === "8") {
-            // Do something
-        } else if (name === "9") {
-            // Do something
-        } else if (name === "0") {
-            // Do something
-        } else if (name === "Escape") {
-            // Do something
-        } else if (name === "Enter") {
-            // Do something
-        } else if (name === "+") {
-            // Do something
-        } else if (name === "-") {
-            // Do something
-        } else if (name === "*") {
-            // Do something
-        } else if (name === "/") {
-            // Do something
-        }
-    });
+        arr_calc.length = 0;
+        arr_calc.push('Root of ');
+        field_display.length == 0 ? arr_calc.push(0) : arr_calc.push(parseInt(field_display.innerText));
+        let result = Math.sqrt(arr_calc[1]);
+        display_text = result;
+        display_text_small = `${arr_calc[0]}${arr_calc[1]}`;
+        field_display.innerText = display_text;
+        field_display_small.innerText = display_text_small;
 
+        // add data to history-field
+        add_history(arr_calc, result);
+
+        // reset array
+        arr_calc.length = 0;
+    });
 });
