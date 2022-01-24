@@ -53,9 +53,10 @@ def result(request, adr, lat, lon):
     l_wind_speed = [int(round(item * 3.6, 0)) for item in l_wind_speed]
     l_pop = df["pop"].tolist()
     l_pop = [int(round(ele * 100, 0)) for ele in l_pop]
+    temp_min = min(l_temp_celcius) - 5
+    temp_max = max(l_temp_celcius) + 5
 
     # create list of next 48 hours
-    # l_list_hours = get_list_hours()
     l_list_hours = get_list_hours()
 
     # create map (folium) and add marker
@@ -66,6 +67,7 @@ def result(request, adr, lat, lon):
     context = {
         "alert_from": str_alert_from, "alert_event": str_alert_event, "alert_msg": str_alert_msg, "map": m,
         "temp_celcius": l_temp_celcius, "rain_amount": l_rain_amount, "wind_speed": l_wind_speed, "pop": l_pop,
-        "address": adr, "l_list_hours": l_list_hours, "geo_lat": geo_lat, "geo_lon": geo_lon
+        "address": adr, "l_list_hours": l_list_hours, "geo_lat": geo_lat, "geo_lon": geo_lon,
+        "temp_min": temp_min, "temp_max": temp_max
     }
     return render(request, 'app_weather/result.html', context)

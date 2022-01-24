@@ -40,8 +40,30 @@
         <!-- ApexCharts -->
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+        <!-- Three JS -->
+        <script type="text/javascript" src="{% static 'threejs/three.js' %}"></script>
+
         <script>
             const url_base = 'http://127.0.0.1:8000/';
+
+            const getWebCookie = name => {
+                // split cookie string and get all individual name=value pairs into an arry
+                let cookieArr = document.cookie.split(";");
+
+                // loop through elements
+                for (let i=0; i < cookieArr.length; i++) {
+                    let cookiePair = cookieArr[i].split("=");
+
+                    // Remove white spaces at the beginning of cookie name and compare it with the given string
+                    if (name == cookiePair[0].trim()) {
+                    // decode the cookie value and return
+                    return decodeURIComponent(cookiePair[1]);
+                    };
+                };
+
+                // return null if not found
+                return null;
+            };
 
             const getCookie = name => {
                 let cookieValue = null;
@@ -57,6 +79,14 @@
                     }
                 }
                 return cookieValue;
+            };
+
+            let user = '{{ request.user }}';
+            let cart = JSON.parse(getWebCookie('cart'));
+
+            if (cart == undefined) {
+                cart = {}
+                document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
             };
         </script>
         {% block script %}{% endblock script %}

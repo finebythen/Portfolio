@@ -1,0 +1,176 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_ecommerce/index.css' %}">
+{% endblock link %}
+
+{% block title %}
+    Store
+{% endblock title %}
+
+{% block content %}
+    {% include 'app_ecommerce/navbar.html' %}
+
+    <div class="grid-container-products">
+        <div class="product-1">
+            <div class="card card-body product-box">
+                <div class="grid-product">
+                    <div class="img">
+                        <img class="thumbnail" src="{{ products.0.imageURL }}" alt="productImage">
+                    </div>
+                    <div class="title">
+                        <div class="card card-body">
+                            <h6><strong>{{ products.0.name }}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <button data-product="{{ products.0.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
+                            <i class="bi bi-cart-check"></i>
+                        </button>
+                        <button class="btn btn-success btn-sm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <h4><strong>{{ products.0.price|floatformat:2 }} €</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-2">
+            <div class="card card-body product-box">
+                <div class="grid-product">
+                    <div class="img">
+                        <img class="thumbnail" src="{{ products.1.imageURL }}" alt="productImage">
+                    </div>
+                    <div class="title">
+                        <div class="card card-body">
+                            <h6><strong>{{ products.1.name }}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <button data-product="{{ products.1.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
+                            <i class="bi bi-cart-check"></i>
+                        </button>
+                        <button class="btn btn-success btn-sm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <h4><strong>{{ products.1.price|floatformat:2 }} €</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-3">
+            <div class="card card-body product-box">
+                <div class="grid-product">
+                    <div class="img">
+                        <img class="thumbnail" src="{{ products.2.imageURL }}" alt="productImage">
+                    </div>
+                    <div class="title">
+                        <div class="card card-body">
+                            <h6><strong>{{ products.2.name }}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <button data-product="{{ products.2.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
+                            <i class="bi bi-cart-check"></i>
+                        </button>
+                        <button class="btn btn-success btn-sm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <h4><strong>{{ products.2.price|floatformat:2 }} €</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-4">
+            <div class="card card-body product-box">
+                <div class="grid-product">
+                    <div class="img">
+                        <img class="thumbnail" src="{{ products.3.imageURL }}" alt="productImage">
+                    </div>
+                    <div class="title">
+                        <div class="card card-body">
+                            <h6><strong>{{ products.3.name }}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <button data-product="{{ products.3.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
+                            <i class="bi bi-cart-check"></i>
+                        </button>
+                        <button class="btn btn-success btn-sm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <h4><strong>{{ products.3.price|floatformat:2 }} €</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-5">
+            <div class="card card-body product-box">
+                <div class="grid-product">
+                    <div class="img">
+                        <img class="thumbnail" src="{{ products.4.imageURL }}" alt="productImage">
+                    </div>
+                    <div class="title">
+                        <div class="card card-body">
+                            <h6><strong>{{ products.4.name }}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <button data-product="{{ products.4.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
+                            <i class="bi bi-cart-check"></i>
+                        </button>
+                        <button class="btn btn-success btn-sm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <h4><strong>{{ products.4.price|floatformat:2 }} €</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-6">
+            <div class="card card-body product-box">
+                <div class="grid-product">
+                    <div class="img">
+                        <img class="thumbnail" src="{{ products.5.imageURL }}" alt="productImage">
+                    </div>
+                    <div class="title">
+                        <div class="card card-body">
+                            <h6><strong>{{ products.5.name }}</strong></h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <button data-product="{{ products.5.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
+                            <i class="bi bi-cart-check"></i>
+                        </button>
+                        <button class="btn btn-success btn-sm">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <h4><strong>{{ products.5.price|floatformat:2 }} €</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-4">
+                    <img class="thumbnail" src="{{ product.imageURL }}" alt="productImage">
+                    <div class="box-element product">
+                        <h6><strong>{{ product.name }}</strong></h6>
+                        <hr>
+    
+                        <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button>
+                        <a class="btn btn-outline-success" href="#">View</a>
+                        <h4><strong>${{ product.price|floatformat:2 }}</strong></h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> -->
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/app_ecommerce/cart.js' %}"></script>
+{% endblock script %}

@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", e => {
             type: 'text',
             categories: arr_hours
         },
+        yaxis: {
+            min: temp_min,
+            max: temp_max
+        },
     };
 
     // chart wind

@@ -32,6 +32,7 @@
             <p>React</p>
             <p>Node JS (in Progress)</p>
             <p>PostgreSQL</p>
+            <p>scikit-learn (ML)</p>
             <h4>Kontakt</h4>
             <p>finnmortenthen@gmail.com</p>
         </div>
@@ -88,65 +89,61 @@
             <h3>Geburtstag &#8594</h3>
             <div class="card card-body">
                 <h5>30.11.1987</h5>
-                <div class="map-leaflet" id="map-geburtstag"></div>
+                <p>Wyk auf Föhr</p>
             </div>
             <h3>Schulzeit &#8594</h3>
             <div class="card card-body">
                 <h5>1993-1996</h5>
-                <div class="map-leaflet" id="map-grundschule"></div>
                 <p>Grundschule Wyk auf Föhr</p>
             </div>
             <div class="card card-body">
                 <h5>1997</h5>
-                <div class="map-leaflet" id="map-isd"></div>
                 <p>International School of Düsseldorf</p>
             </div>
             <div class="card card-body">
                 <h5>1998-2001</h5>
-                <div class="map-leaflet" id="map-gs-foehr"></div>
                 <p>Grundschule Föhr / Amrum</p>
             </div>
             <div class="card card-body">
                 <h5>2001-2005</h5>
-                <div class="map-leaflet" id="map-gs-flensburg"></div>
                 <p>Gesamtschule Flensburg (KTS)</p>
             </div>
             <h3>Ausbildung &#8594</h3>
             <div class="card card-body">
                 <h5>2005-2009</h5>
-                <div class="map-leaflet" id="map-pi-1"></div>
                 <p>Technische:r Zeichner:in</p>
+                <p>Petersen-Ingenieure GmbH</p>
             </div>
             <h3>Arbeitswelt &#8594</h3>
             <div class="card card-body">
                 <h5>2009</h5>
-                <div class="map-leaflet" id="map-pi-2"></div>
                 <p>Technische:r Zeichner:in</p>
+                <p>Petersen-Ingenieure GmbH</p>
             </div>
             <div class="card card-body">
                 <h5>2010-2011</h5>
-                <div class="map-leaflet" id="map-pk"></div>
                 <p>Teamleiter:in Callcenter</p>
+                <p>Webhelp Flensburg GmbH</p>
             </div>
             <div class="card card-body">
                 <h5>2011-2014</h5>
-                <div class="map-leaflet" id="map-nkn-1"></div>
                 <p>Technische Beratung & Planung</p>
+                <p>netzkontor nord gmbh</p>
             </div>
             <div class="card card-body">
                 <h5>2015</h5>
-                <div class="map-leaflet" id="map-nkn-2"></div>
                 <p>Teamleiter:in & Ausbildung Mitarbeiter:innen</p>
+                <p>netzkontor nord gmbh</p>
             </div>
             <div class="card card-body">
                 <h5>2016-2018</h5>
-                <div class="map-leaflet" id="map-nkn-3"></div>
                 <p>Ausbildung Mitarbeiter:innen & Webentwicklung</p>
+                <p>netzkontor nord gmbh</p>
             </div>
             <div class="card card-body">
                 <h5>2019-...</h5>
-                <div class="map-leaflet" id="map-nkn-4"></div>
                 <p>Anwendungs- & Webentwicklung</p>
+                <p>netzkontor nord gmbh</p>
             </div>
         </div>
         <div class="grid-app-04">
@@ -182,19 +179,27 @@
                 <i class="bi bi-cart"></i>
             </div>
             <div>
-                <a href="#">Shop</a>
+                <a href="{% url 'store' %}">Shop</a>
             </div>
         </div>
         <div class="grid-app-08">
-            <!-- App: Shop -->
+            <!-- App: Game -->
             <div>
                 <i class="bi bi-controller"></i>
             </div>
             <div>
-                <a href="#">Game</a>
+                <a href="{% url 'app-game-index' %}">Game</a>
             </div>
         </div>
-        <div class="grid-app-09"></div>
+        <div class="grid-app-09">
+            <!-- App: Game -->
+            <div>
+                <i class="bi bi-globe"></i>
+            </div>
+            <div>
+                <a href="#">3D-World</a>
+            </div>
+        </div>
         <div class="grid-empty-01"></div>
     </div>
 {% endblock content %}

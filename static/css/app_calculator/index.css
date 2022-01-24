@@ -144,6 +144,27 @@
     margin: 0;
     font-weight: 700;
 }
+.grid-history > #top-history {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.grid-history > #top-history > #badge-history {
+    margin: 8px;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 25px;
+    background-color: var(--color-mid-purple);
+}
+.grid-history > #top-history > #badge-history > p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
 
 /* Scrollbar */
 .grid-history::-webkit-scrollbar {

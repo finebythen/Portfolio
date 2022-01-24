@@ -59,6 +59,12 @@ document.addEventListener("DOMContentLoaded", e => {
         return cleaned_arr;
     };
 
+    const counter_history = () => {
+        let p = document.getElementById('p-history');
+        let int = parseInt(p.innerText) + 1;
+        p.innerText = int;
+    };
+
     const add_history = (arr, result) => {
         let result_calc = arr.join(' ');
 
@@ -135,6 +141,7 @@ document.addEventListener("DOMContentLoaded", e => {
         field_display_small.innerText = display_text_small;
 
         // add data to history-field
+        counter_history();
         add_history(arr_calc, result);
 
         // reset array
@@ -154,6 +161,7 @@ document.addEventListener("DOMContentLoaded", e => {
         field_display_small.innerText = display_text_small;
 
         // add data to history-field
+        counter_history();
         add_history(arr_calc, result);
 
         // reset array

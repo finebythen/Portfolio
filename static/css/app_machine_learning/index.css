@@ -1,0 +1,98 @@
+/* Body */
+body {
+    position: relative;
+}
+
+/* Container */
+.container {
+    max-width: 1200px !important;
+    text-align: center;
+}
+.container > h3:nth-child(1) {
+    margin: 64px 0 16px 0;
+}
+
+/* Card */
+.card-body {
+    text-align: left;
+}
+.card-body > p {
+    margin: 0 16px;
+}
+.card-body > .code-block {
+    width: 95%;
+    margin: 16px auto;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #bebebe;
+}
+.card-body > .code-block > p {
+    margin: 8px 16px;
+    font-size: 14px;
+}
+
+/* Ul */
+ul > li {
+    margin: 32px 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+ul > li > img {
+    height: 40px;
+}
+ul > li > p {
+    margin: 0 16px 0 32px;
+    color: var(--color-mid-purple);
+}
+
+/* Link */
+#link-back {
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    z-index: 10;
+    color: var(--color-mid-purple);
+    margin-right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Button */
+.btn-canvas {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+/* Chart Canvas */
+.canvas-chart {
+    height: 300px;
+    width: 95%;
+    margin: 16px auto;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+/* Diverse */
+.span-text {
+    color: var(--color-mid-purple);
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: 11px;
+}
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track {
+    background: var(--color-mid-beige);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-mid-purple);
+    border-radius: 6px;
+    border: 3px solid var(--color-mid-purple);
+}

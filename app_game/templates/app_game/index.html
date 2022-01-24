@@ -1,0 +1,52 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_game/index.css' %}">
+{% endblock link %}
+
+{% block title %}
+    App: Game
+{% endblock title %}
+
+{% block content %}
+    <a href="{% url 'frontend-main' %}" id="link-back">
+        <i class="bi bi-backspace-fill"></i>
+    </a>
+
+    <div id="score">Press UP</div>
+
+    <div id="controls">
+        <div id="buttons">
+            <button id="accelerate">
+                <svg width="30" height="30" viewBox="0 0 10 10">
+                    <g transform="rotate(0, 5,5)">
+                        <path d="M5,4 L7,6 L3,6 L5,4" />
+                    </g>
+                </svg>
+            </button>
+            <button id="decelerate">
+                <svg width="30" height="30" viewBox="0 0 10 10">
+                    <g transform="rotate(180, 5,5)">
+                        <path d="M5,4 L7,6 L3,6 L5,4" />
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div id="instructions">
+            Drücke &#8593; um zu starten. Vermeide Kollisionen mit anderen Fahrzeugen indem du die die Pfeiltasten
+            &#8593; und &#8595; zum beschleunigen bzw. bremsen betätigst.
+        </div>
+    </div>
+
+    <div id="results">
+        <div class="content">
+            <h1>Du hast ein anderes Auto getroffen!</h1>
+            <p>Um das Spiel erneut zu starten, drücke die Taste 'R'</p>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/app_game/index.js' %}"></script>
+{% endblock script %}
