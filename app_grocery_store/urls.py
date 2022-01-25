@@ -9,6 +9,7 @@ urlpatterns = [
 
     # api
     path('api/get/', api.api_data_get_all, name="app-grovery-store-api-get-all"),
+    path('api/get/<int:pk>/', api.api_data_get_single, name="app-grovery-store-api-get-single"),
     path('api/post/', api.api_data_post, name="app-grovery-store-api-post"),
     path('api/put/<int:pk>/add/', api.api_data_put_add, name="app-grovery-store-api-put-add"),
     path('api/put/<int:pk>/remove/', api.api_data_put_remove, name="app-grovery-store-api-put-remove"),

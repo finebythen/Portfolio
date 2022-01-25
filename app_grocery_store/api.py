@@ -21,6 +21,18 @@ def api_data_get_all(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['GET'])
+def api_data_get_single(request, pk):
+    try:
+        qs = Einkaufsliste.objects.get(id=pk)
+        serializer = EinkaufslisteSerializer_GET(qs, many=False)
+        return Response(serializer.data)
+    except ConnectionError:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    except ObjectDoesNotExist:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 @api_view(['POST'])
 def api_data_post(request):
     try:
@@ -57,7 +69,9 @@ def api_data_put_remove(request, pk):
         anzahl_vorher = qs.anzahl
         anzahl_nachher = 0 if anzahl_vorher == 0 else anzahl_vorher - 1
         qs.anzahl = anzahl_nachher
-        qs.save()
+
+        if qs.anzahl >= 1:
+            qs.save()
         return Response(status=status.HTTP_200_OK)
     except ConnectionError:
         return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)

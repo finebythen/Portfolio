@@ -1,6 +1,6 @@
 "use strict"
 
-document.addEventListener("DOMContentLoaded", e => {
+document.addEventListener("DOMContentLoaded", () => {
     // variables
     let display_text = "";
     let display_text_small = "";
@@ -36,29 +36,6 @@ document.addEventListener("DOMContentLoaded", e => {
     let arr_btn_calc = [btn_plus, btn_minus, btn_multi, btn_divide];
 
     // functions
-    const clean_array = (arr, typ) => {
-        let cleaned_arr = [];
-        let last_item;
-        for (let i=0; i < arr.length; i++) {
-            if (arr[i] === "+" || arr[i] === "-" || arr[i] === "*" || arr[i] === "/" || Number.isInteger(arr[i])) {
-                cleaned_arr.push(arr[i]);
-            } else {
-                cleaned_arr.push(0)
-            };
-        };
-
-        if (typ === "equal") {
-            last_item = cleaned_arr[cleaned_arr.length - 1];
-            Number.isInteger(last_item) ? cleaned_arr : cleaned_arr.pop();
-            last_item = cleaned_arr[cleaned_arr.length - 1];
-            if (last_item === "+" || last_item === "-" || last_item === "*" || last_item === "/") {
-                cleaned_arr.pop();
-            }
-        };
-
-        return cleaned_arr;
-    };
-
     const counter_history = () => {
         let p = document.getElementById('p-history');
         let int = parseInt(p.innerText) + 1;
@@ -86,45 +63,15 @@ document.addEventListener("DOMContentLoaded", e => {
         field_history.append(fragment);
     };
 
-    // init listeners
-    for (let i=0; i < arr_objects.length; i++) {
-        arr_objects[i].addEventListener('click', e => {
-            e.preventDefault();
-            if (display_text.length < 10) {
-                display_text += String(arr_objects_num[i]);
-            } else {
-                display_text = display_text;
-            };
-            field_display.innerText = display_text;
-        });
-    };
-
-    for (let i=0; i < arr_btn_calc.length; i++) {
-        arr_btn_calc[i].addEventListener('click', e => {
-            e.preventDefault();
-
-            field_display.length == 0 ? arr_calc.push(0) : arr_calc.push(parseInt(field_display.innerText));
-            arr_calc.push(arr_btn_calc[i].innerText);
-            arr_calc = clean_array(arr_calc, "calc");
-            display_text = "";
-            display_text_small = arr_calc.join(' ');
-            field_display.innerText = display_text;
-            field_display_small.innerText = display_text_small;
-        });
-    };
-
-    btn_ac.addEventListener('click', e => {
-        e.preventDefault();
+    const press_ac = () => {
         arr_calc.length = 0;
         display_text = "";
         display_text_small = "";
         field_display.innerText = display_text;
         field_display_small.innerText = display_text_small;
-    });
+    };
 
-    btn_equal.addEventListener('click', e => {
-        e.preventDefault();
-
+    const press_equal = () => {
         field_display.length == 0 ? arr_calc.push(0) : arr_calc.push(parseInt(field_display.innerText));
         arr_calc = clean_array(arr_calc, "equal");
         display_text = "";
@@ -146,6 +93,77 @@ document.addEventListener("DOMContentLoaded", e => {
 
         // reset array
         arr_calc.length = 0;
+    };
+
+    const clean_array = (arr, typ) => {
+        let cleaned_arr = [];
+        let last_item;
+        for (let i=0; i < arr.length; i++) {
+            if (arr[i] === "+" || arr[i] === "-" || arr[i] === "*" || arr[i] === "/" || Number.isInteger(arr[i])) {
+                cleaned_arr.push(arr[i]);
+            } else {
+                cleaned_arr.push(0)
+            };
+        };
+
+        if (typ === "equal") {
+            last_item = cleaned_arr[cleaned_arr.length - 1];
+            Number.isInteger(last_item) ? cleaned_arr : cleaned_arr.pop();
+            last_item = cleaned_arr[cleaned_arr.length - 1];
+            if (last_item === "+" || last_item === "-" || last_item === "*" || last_item === "/") {
+                cleaned_arr.pop();
+            }
+        };
+
+        return cleaned_arr;
+    };
+
+    const add_num_to_display = num => {
+        display_text.length < 10 ? display_text += String(num) : display_text = display_text;
+        field_display.innerText = display_text;
+    };
+
+    const add_calc_to_display = calc => {
+        field_display.length == 0 ? arr_calc.push(0) : arr_calc.push(parseInt(field_display.innerText));
+        arr_calc.push(calc);
+        arr_calc = clean_array(arr_calc, "calc");
+        display_text = "";
+        display_text_small = arr_calc.join(' ');
+        field_display.innerText = display_text;
+        field_display_small.innerText = display_text_small;
+    };
+
+    // init listeners
+    for (let i=0; i < arr_objects.length; i++) {
+        arr_objects[i].addEventListener('click', e => {
+            e.preventDefault();
+            display_text.length < 10 ? display_text += String(arr_objects_num[i]) : display_text = display_text;
+            field_display.innerText = display_text;
+        });
+    };
+
+    for (let i=0; i < arr_btn_calc.length; i++) {
+        arr_btn_calc[i].addEventListener('click', e => {
+            e.preventDefault();
+
+            field_display.length == 0 ? arr_calc.push(0) : arr_calc.push(parseInt(field_display.innerText));
+            arr_calc.push(arr_btn_calc[i].innerText);
+            arr_calc = clean_array(arr_calc, "calc");
+            display_text = "";
+            display_text_small = arr_calc.join(' ');
+            field_display.innerText = display_text;
+            field_display_small.innerText = display_text_small;
+        });
+    };
+
+    btn_ac.addEventListener('click', e => {
+        e.preventDefault();
+        press_ac();
+    });
+
+    btn_equal.addEventListener('click', e => {
+        e.preventDefault();
+        press_equal();
     });
 
     btn_root.addEventListener('click', e => {
@@ -166,5 +184,41 @@ document.addEventListener("DOMContentLoaded", e => {
 
         // reset array
         arr_calc.length = 0;
+    });
+
+    document.addEventListener('keyup', e => {
+        if (e.key === "1") {
+            add_num_to_display(1);
+        } else if (e.key === "2") {
+            add_num_to_display(2);
+        } else if (e.key === "3") {
+            add_num_to_display(3);
+        } else if (e.key === "4") {
+            add_num_to_display(4);
+        } else if (e.key === "5") {
+            add_num_to_display(5);
+        } else if (e.key === "6") {
+            add_num_to_display(6);
+        } else if (e.key === "7") {
+            add_num_to_display(7);
+        } else if (e.key === "8") {
+            add_num_to_display(8);
+        } else if (e.key === "9") {
+            add_num_to_display(9);
+        } else if (e.key === "0") {
+            add_num_to_display(0);
+        } else if (e.key === "+") {
+            add_calc_to_display("+");
+        } else if (e.key === "-") {
+            add_calc_to_display("-");
+        } else if (e.key === "*") {
+            add_calc_to_display("*");
+        } else if (e.key === "/") {
+            add_calc_to_display("/");
+        } else if (e.key === "Escape") {
+            press_ac();
+        } else if (e.key === "Enter") {
+            press_equal();
+        };
     });
 });

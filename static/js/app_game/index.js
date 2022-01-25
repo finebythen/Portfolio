@@ -132,7 +132,6 @@ function generateBox(x, y, z, width, depth, falls) {
     // ThreeJS
     const geometry = new THREE.BoxGeometry(width, boxHeight, depth);
     const color = new THREE.Color(`hsl(${30 + stack.length * 4}, 100%, 50%)`);
-    console.log(color);
     const material = new THREE.MeshLambertMaterial({ color });
     const mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(x, y, z);

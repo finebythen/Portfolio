@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", e => {
     let form = document.getElementById('form-store');
     let input = document.getElementById('input-store');
     let btn_post = document.getElementById('btn-post-store');
-    let btn_xls = document.getElementById('btn-xls-store');
-    let ul = document.getElementById('ulist-store');
+    let ul = document.getElementById('ulist-store');    
 
     const api_get_store_all = () => {
         let url = `${url_base}${url_app}api/get/`;
@@ -41,18 +40,16 @@ document.addEventListener("DOMContentLoaded", e => {
                 div.setAttribute('class', 'container-buttons');
                 btn_add.innerText = '+';
                 btn_add.setAttribute('class', 'btn btn-warning btn-sm btn-add');
-                btn_add.setAttribute('value', list[i].id);
                 btn_remove.innerText = '-';
                 btn_remove.setAttribute('class', 'btn btn-warning btn-sm btn-remove');
-                btn_remove.setAttribute('value', list[i].id);
                 btn_delete_sign.setAttribute('class', 'bi bi-trash');
                 btn_delete.appendChild(btn_delete_sign);
                 btn_delete.setAttribute('class', 'btn btn-danger btn-sm btn-delete');
-                btn_delete.setAttribute('value', list[i].id);
                 div.appendChild(btn_remove);
                 div.appendChild(btn_add);
                 div.appendChild(btn_delete);
 
+                li.setAttribute('data-list-id', list[i].id);
                 li.appendChild(p_text);
                 li.appendChild(p_amount);
                 li.appendChild(div);
@@ -86,6 +83,27 @@ document.addEventListener("DOMContentLoaded", e => {
                     e.preventDefault();
                     api_delete_store(list[i].id);
                 });
+            };
+        })
+        .catch(error => {console.log(error)})
+    };
+
+    const api_get_store_single = pk => {
+        let url = `${url_base}${url_app}api/get/${pk}/`;
+        let li = document.getElementsByTagName('li');
+
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let obj = data;
+            let search_id = String(obj.id);
+
+            for (let item of li) {
+                if (item.dataset.listId === search_id) {
+                    item.childNodes[0].innerText = obj.beschreibung;
+                    item.childNodes[1].innerText = `Anzahl: ${obj.anzahl}`;
+                    break;
+                };
             };
         })
         .catch(error => {console.log(error)})
@@ -127,7 +145,7 @@ document.addEventListener("DOMContentLoaded", e => {
         })
         .then(data => {console.log(data)})
         .then(function() {
-            api_get_store_all();
+            api_get_store_single(pk);
         })
         .catch(error => {console.log(error)})
     };
@@ -145,7 +163,7 @@ document.addEventListener("DOMContentLoaded", e => {
         })
         .then(data => {console.log(data)})
         .then(function() {
-            api_get_store_all();
+            api_get_store_single(pk);
         })
         .catch(error => {console.log(error)})
     };

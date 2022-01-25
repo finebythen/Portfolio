@@ -100,3 +100,34 @@ body::-webkit-scrollbar-thumb,
     border-radius: 6px;
     border: 3px solid var(--color-mid-purple);
 }
+
+/* Media-Queries */
+@media only screen and (max-width: 1050px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.5fr 0.5fr 2fr 2fr 2fr 0.1fr;
+        grid-template-areas:
+            "grid-back grid-address grid-address grid-address"
+            "grid-empty-left grid-warning grid-warning grid-empty-right"
+            "grid-temperature grid-temperature grid-temperature grid-temperature"
+            "grid-map grid-map grid-wind grid-wind"
+            "grid-rain grid-rain grid-pop grid-pop"
+            "grid-copy grid-copy grid-copy grid-copy";
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.5fr 0.5fr 2fr 2fr 2fr 2fr 2fr 0.1fr;
+        grid-template-areas:
+            "grid-back grid-address grid-address grid-address"
+            "grid-empty-left grid-warning grid-warning grid-empty-right"
+            "grid-temperature grid-temperature grid-temperature grid-temperature"
+            "grid-map grid-map grid-map grid-map"
+            "grid-wind grid-wind grid-wind grid-wind"
+            "grid-rain grid-rain grid-rain grid-rain"
+            "grid-pop grid-pop grid-pop grid-pop"
+            "grid-copy grid-copy grid-copy grid-copy";
+    }
+}

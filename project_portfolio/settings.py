@@ -44,11 +44,9 @@ INSTALLED_APPS = [
 
     'app_3d_world.apps.App3DWorldConfig',
     'app_calculator.apps.AppCalculatorConfig',
-    'app_calendar.apps.AppCalendarConfig',
     'app_ecommerce.apps.AppEcommerceConfig',
     'app_game.apps.AppGameConfig',
     'app_grocery_store.apps.AppGroceryStoreConfig',
-    'app_todo.apps.AppTodoConfig',
     'app_weather.apps.AppWeatherConfig',
     'frontend.apps.FrontendConfig',
 ]

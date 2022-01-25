@@ -195,8 +195,7 @@ html {
 
 .grid-app-04,
 .grid-app-05,
-.grid-app-06,
-.grid-app-07 {
+.grid-app-06 {
     border-right: 2px solid var(--color-mid-purple);
 }
 .grid-app-04 > div:nth-child(1),

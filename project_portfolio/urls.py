@@ -22,11 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('app-3d-world/', include('app_3d_world.urls')),
     path('app-calculator/', include('app_calculator.urls')),
-    path('app-calendar/', include('app_calendar.urls')),
     path('app-ecommerce/', include('app_ecommerce.urls')),
     path('app-game/', include('app_game.urls')),
     path('app-grocery-store/', include('app_grocery_store.urls')),
-    path('app-todo/', include('app_todo.urls')),
     path('app-weather/', include('app_weather.urls')),
     path('', include('frontend.urls')),
 ]
