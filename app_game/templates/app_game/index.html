@@ -14,37 +14,20 @@
         <i class="bi bi-backspace-fill"></i>
     </a>
 
-    <div id="score">Press UP</div>
-
-    <div id="controls">
-        <div id="buttons">
-            <button id="accelerate">
-                <svg width="30" height="30" viewBox="0 0 10 10">
-                    <g transform="rotate(0, 5,5)">
-                        <path d="M5,4 L7,6 L3,6 L5,4" />
-                    </g>
-                </svg>
-            </button>
-            <button id="decelerate">
-                <svg width="30" height="30" viewBox="0 0 10 10">
-                    <g transform="rotate(180, 5,5)">
-                        <path d="M5,4 L7,6 L3,6 L5,4" />
-                    </g>
-                </svg>
-            </button>
-        </div>
-        <div id="instructions">
-            Drücke &#8593; um zu starten. Vermeide Kollisionen mit anderen Fahrzeugen indem du die die Pfeiltasten
-            &#8593; und &#8595; zum beschleunigen bzw. bremsen betätigst.
+    <div id="instructions">
+        <div class="content">
+            <p>Versuche die Blöcke übereinander zu stapeln.</p>
+            <p>Drücke 'Tab' oder die 'Leertaste' um einen Block zu setzen.</p>
+            <p>Drücke 'Tab' oder die 'Leertaste' um das Spiel zu starten!</p>
         </div>
     </div>
-
     <div id="results">
         <div class="content">
-            <h1>Du hast ein anderes Auto getroffen!</h1>
-            <p>Um das Spiel erneut zu starten, drücke die Taste 'R'</p>
+            <p>Du hast den Block verfehlt!</p>
+            <p>Um das Spiel neu zu starten, drücke die Taste 'R'!</p>
         </div>
     </div>
+    <div id="score">0</div>
 {% endblock content %}
 
 {% block script %}

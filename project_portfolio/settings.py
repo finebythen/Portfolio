@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 
+    'app_3d_world.apps.App3DWorldConfig',
     'app_calculator.apps.AppCalculatorConfig',
     'app_calendar.apps.AppCalendarConfig',
     'app_ecommerce.apps.AppEcommerceConfig',

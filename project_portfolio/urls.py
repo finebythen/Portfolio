@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('app-3d-world/', include('app_3d_world.urls')),
     path('app-calculator/', include('app_calculator.urls')),
     path('app-calendar/', include('app_calendar.urls')),
     path('app-ecommerce/', include('app_ecommerce.urls')),
