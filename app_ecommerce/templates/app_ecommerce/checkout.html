@@ -3,6 +3,7 @@
 
 {% block link %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/app_ecommerce/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_ecommerce/checkout.css' %}">
 {% endblock link %}
 
 {% block title %}
@@ -26,48 +27,50 @@
                         </div>
                         <div id="shipping-info">
                             <hr>
-                            <p>Shipping Information:</p>
+                            <p>Sendungsinformationen:</p>
                             <hr>
                             <div class="form-field">
-                                <input class="form-control" type="text" name="address" placeholder="Address..">
+                                <input class="form-control" type="text" name="address" placeholder="Adresse..">
                             </div>
                             <div class="form-field">
-                                <input class="form-control" type="text" name="city" placeholder="City..">
+                                <input class="form-control" type="text" name="city" placeholder="Stadt..">
                             </div>
                             <div class="form-field">
-                                <input class="form-control" type="text" name="state" placeholder="State..">
+                                <input class="form-control" type="text" name="state" placeholder="Bundesland..">
                             </div>
                             <div class="form-field">
-                                <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+                                <input class="form-control" type="text" name="zipcode" placeholder="Postleitzahl..">
                             </div>
                         </div>
         
                         <hr>
-                        <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                        <input id="form-button" class="btn btn-success btn-block" type="submit" value="Weiter">
                     </form>
                 </div>
                 <br>
                 <div class="box-element hidden" id="payment-info">
-                    <small>Paypal Options</small>
-                    <button id="make-payment">Make Payment</button>
+                    <small>Paypal:</small>
+                    <button class="btn btn-secondary btn-sm" id="make-payment">
+                        <i class="bi bi-paypal"></i>
+                    </button>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="box-element">
-                    <a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+                    <a  class="btn btn-outline-dark" id="btn-cart" href="{% url 'cart' %}">&#x2190; Einkaufskorb</a>
                     <hr>
-                    <h3>Order Summary</h3>
+                    <h3>Bestellübersicht</h3>
                     <hr>
                     {% for item in items %}
                         <div class="cart-row">
                             <div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"></div>
                             <div style="flex:2"><p>{{ item.product.name }}</p></div>
-                            <div style="flex:1"><p>${{ item.get_total }}</p></div>
+                            <div style="flex:1"><p>{{ item.get_total }} €</p></div>
                             <div style="flex:1"><p>x{{ item.quantity }}</p></div>
                         </div>
                     {% endfor %}
-                    <h5>Items:   {{ order.get_cart_items }}</h5>
-                    <h5>Total:   ${{ order.get_cart_total|floatformat:2 }}</h5>
+                    <h5>Objekte:   {{ order.get_cart_items }}</h5>
+                    <h5>Gesamt:   {{ order.get_cart_total|floatformat:2 }} €</h5>
                 </div>
             </div>
         </div>
@@ -124,7 +127,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert('Transaction completed!');
+                alert('Bestellung bestätigt!');
                 cart = {};
                 document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/';
                 window.location.href = "{% url 'store' %}";

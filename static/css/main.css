@@ -5,18 +5,18 @@ html {
 /* Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.05fr 1fr 1fr 0.05fr 0.5fr 1fr 0.25fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.05fr 1fr 1fr 0.05fr 0.5fr 0.75fr 0.25fr;
     gap: 16px;
     margin: 16px;
     grid-template-areas:
-        "grid-header grid-header grid-header grid-header grid-header grid-header"
-        "grid-name grid-name grid-name grid-name grid-name grid-name"
-        "grid-app-01 grid-app-01 grid-app-02 grid-app-02 grid-empty-01 grid-info"
-        "grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-empty-01 grid-info"
-        "grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03"
-        "grid-app-04 grid-app-05 grid-app-06 grid-app-07 grid-app-08 grid-app-09"
-        "grid-links grid-links grid-links grid-links grid-links grid-links";
+        "grid-header grid-header grid-header grid-header grid-header grid-header grid-header grid-header"
+        "grid-name grid-name grid-name grid-name grid-name grid-name grid-name grid-name"
+        "grid-app-01 grid-app-01 grid-app-01 grid-app-02 grid-app-02 grid-app-02 grid-empty-01 grid-info"
+        "grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-empty-01 grid-info"
+        "grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03"
+        "grid-app-04 grid-app-04 grid-app-05 grid-app-05 grid-app-06 grid-app-06 grid-app-07 grid-app-07"
+        "grid-links grid-links grid-links grid-links grid-links grid-links grid-links grid-links";
 }
 .grid-header {
     grid-area: grid-header;
@@ -40,8 +40,6 @@ html {
 .grid-app-05 { grid-area: grid-app-05; }
 .grid-app-06 { grid-area: grid-app-06; }
 .grid-app-07 { grid-area: grid-app-07; }
-.grid-app-08 { grid-area: grid-app-08; }
-.grid-app-09 { grid-area: grid-app-09; }
 .grid-empty-01 { grid-area: grid-empty-01; }
 
 .grid-app-01,
@@ -84,6 +82,10 @@ html {
 .grid-info {
     padding-left: 16px;
 }
+.grid-info > h4,
+.grid-info > p {
+    margin-right: 24px;
+}
 .grid-info > h4 {
     margin-bottom: 16px;
 }
@@ -93,7 +95,8 @@ html {
     margin-top: 32px;
 }
 .grid-info > p {
-    margin: 4px 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
     font-size: 14px;
 }
 
@@ -193,16 +196,13 @@ html {
 .grid-app-04,
 .grid-app-05,
 .grid-app-06,
-.grid-app-07,
-.grid-app-08 {
+.grid-app-07 {
     border-right: 2px solid var(--color-mid-purple);
 }
 .grid-app-04 > div:nth-child(1),
 .grid-app-05 > div:nth-child(1),
 .grid-app-06 > div:nth-child(1),
-.grid-app-07 > div:nth-child(1),
-.grid-app-08 > div:nth-child(1),
-.grid-app-09 > div:nth-child(1) {
+.grid-app-07 > div:nth-child(1) {
     width: 100%;
     height: 85%;
     display: flex;
@@ -212,9 +212,7 @@ html {
 .grid-app-04 > div:nth-child(2),
 .grid-app-05 > div:nth-child(2),
 .grid-app-06 > div:nth-child(2),
-.grid-app-07 > div:nth-child(2),
-.grid-app-08 > div:nth-child(2),
-.grid-app-09 > div:nth-child(2) {
+.grid-app-07 > div:nth-child(2) {
     width: 100%;
     height: 15%;
     text-align: center;
@@ -222,9 +220,7 @@ html {
 .grid-app-04 > div > i,
 .grid-app-05 > div > i,
 .grid-app-06 > div > i,
-.grid-app-07 > div > i,
-.grid-app-08 > div > i,
-.grid-app-09 > div > i {
+.grid-app-07 > div > i {
     font-size: 75px;
     color: var(--color-mid-purple);
 }
@@ -239,13 +235,7 @@ html {
 .grid-app-06 > div > a:active,
 .grid-app-07 > div > a:link,
 .grid-app-07 > div > a:visited,
-.grid-app-07 > div > a:active,
-.grid-app-08 > div > a:link,
-.grid-app-08 > div > a:visited,
-.grid-app-08 > div > a:active,
-.grid-app-09 > div > a:link,
-.grid-app-09 > div > a:visited,
-.grid-app-09 > div > a:active {
+.grid-app-07 > div > a:active {
     margin: 0;
     padding: 0;
     font-size: 20px;
@@ -256,9 +246,7 @@ html {
 .grid-app-04 > div > a:hover,
 .grid-app-05 > div > a:hover,
 .grid-app-06 > div > a:hover,
-.grid-app-07 > div > a:hover,
-.grid-app-08 > div > a:hover,
-.grid-app-09 > div > a:hover {
+.grid-app-07 > div > a:hover {
     font-size: 24px;
 }
 

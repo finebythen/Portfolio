@@ -1,0 +1,31 @@
+.box-element {
+    border: 1px solid var(--color-mid-beige);
+    background-color: var(--color-mid-beige);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.box-element > h3,
+.box-element > h5,
+.box-element > .cart-row > div > img {
+    margin-left: 8px;
+}
+
+#btn-cart,
+#form-button,
+#make-payment {
+    margin-left: 8px;
+    border-radius: 8px;
+}
+
+#shipping-info > p {
+    margin-left: 16px;
+}
+
+input[type=email],
+input[type=text] {
+    height: 42px;
+    margin: 8px;
+}
+
+#make-payment > i {
+    font-size: 16px;
+}
