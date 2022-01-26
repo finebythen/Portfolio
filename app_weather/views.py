@@ -32,7 +32,7 @@ def result(request, adr, lat, lon):
         str_alert_event = dict_alerts.get("event", "-")
         str_alert_msg = dict_alerts.get("description", "-")
     except KeyError:
-        str_alert_from, str_alert_event, str_alert_msg = "-", "-", "-"
+        str_alert_from, str_alert_event, str_alert_msg = "Deutscher Wetterdienst", "keine Unwetterwarnungen", ""
 
     # convert json to dataframe
     df = pd.json_normalize(data["hourly"])

@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", e => {
 
                 p_text.innerText = list[i].beschreibung;
                 p_text.setAttribute('class', 'p-text');
+                p_text.setAttribute('id', `p-text-${list[i].id}`);
                 p_text.style.cursor = 'pointer';
                 list[i].erledigt ? p_text.style.textDecoration = 'line-through' : p_text.style.textDecoration = 'none';
 
@@ -40,11 +41,32 @@ document.addEventListener("DOMContentLoaded", e => {
                 div.setAttribute('class', 'container-buttons');
                 btn_add.innerText = '+';
                 btn_add.setAttribute('class', 'btn btn-warning btn-sm btn-add');
+                btn_add.setAttribute('id', `btn-add-${list[i].id}`);
                 btn_remove.innerText = '-';
                 btn_remove.setAttribute('class', 'btn btn-warning btn-sm btn-remove');
+                btn_remove.setAttribute('id', `btn-remove-${list[i].id}`);
                 btn_delete_sign.setAttribute('class', 'bi bi-trash');
                 btn_delete.appendChild(btn_delete_sign);
                 btn_delete.setAttribute('class', 'btn btn-danger btn-sm btn-delete');
+                btn_delete.setAttribute('id', `btn-delete-${list[i].id}`);
+
+                p_text.addEventListener('click', e => {
+                    e.preventDefault();
+                    api_put_check(list[i].id);
+                });
+                btn_remove.addEventListener('click', e => {
+                    e.preventDefault();
+                    api_put_remove(list[i].id);
+                });
+                btn_add.addEventListener('click', e => {
+                    e.preventDefault();
+                    api_put_add(list[i].id);
+                });
+                btn_delete.addEventListener('click', e => {
+                    e.preventDefault();
+                    api_delete_store(list[i].id);
+                });
+
                 div.appendChild(btn_remove);
                 div.appendChild(btn_add);
                 div.appendChild(btn_delete);
@@ -57,33 +79,6 @@ document.addEventListener("DOMContentLoaded", e => {
                 fragment.append(li);
             };
             ul.append(fragment);
-
-            for (let i in list) {
-                let p_text_check = document.getElementsByClassName('p-text')[i];
-                let btn_remove_amount = document.getElementsByClassName('btn-remove')[i];
-                let btn_add_amount = document.getElementsByClassName('btn-add')[i];
-                let btn_delete_item = document.getElementsByClassName('btn-delete')[i];
-
-                p_text_check.addEventListener('click', e => {
-                    e.preventDefault();
-                    api_put_check(list[i].id);
-                })
-
-                btn_remove_amount.addEventListener('click', e => {
-                    e.preventDefault();
-                    api_put_remove(list[i].id);
-                });
-
-                btn_add_amount.addEventListener('click', e => {
-                    e.preventDefault();
-                    api_put_add(list[i].id);
-                });
-
-                btn_delete_item.addEventListener('click', e => {
-                    e.preventDefault();
-                    api_delete_store(list[i].id);
-                });
-            };
         })
         .catch(error => {console.log(error)})
     };

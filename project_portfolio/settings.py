@@ -145,3 +145,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Package: Django-Cors-Headers
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Package: Django-Rest-Framework (DRF)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
