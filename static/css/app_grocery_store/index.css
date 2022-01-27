@@ -19,6 +19,7 @@
     background-color: var(--color-mid-beige);
 }
 
+#form-mail,
 #form-store {
     width: 100%;
     display: flex;
@@ -27,7 +28,7 @@
 }
 
 ul {
-    height: 60vh;
+    height: 50vh;
     margin: 0;
     padding: 0;
 }
@@ -68,6 +69,11 @@ ul > li > div > button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+/* Input */
+#input-mail {
+    margin-left: 16px;
 }
 
 /* Scrollbar */

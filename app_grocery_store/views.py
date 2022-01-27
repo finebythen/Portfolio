@@ -1,14 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from openpyxl import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
 from openpyxl.styles import Alignment, Font
 import datetime as dt
 
+from django.core.mail import send_mail
+from django.conf import settings
+
 from .models import Einkaufsliste
 
 # Create your views here.
 def index(request):
+    if request.method == 'POST' and 'btn-mail' in request.POST:
+        mail_adress = request.POST.get('input-mail', None)
+
+        # db query
+        qs = Einkaufsliste.objects.filter(erledigt=False)
+
+        str_einkauf = "\n"
+        if qs.count() == 0:
+            str_einkauf += "keine Objekte vorhanden"
+        else:
+            for item in qs:
+                str_einkauf += f"- {item.anzahl}x {item.beschreibung} \n"
+
+        send_mail(
+            'Einkaufsliste',
+            str_einkauf,
+            settings.EMAIL_HOST,
+            [mail_adress],
+            fail_silently=False,
+        )
+        return redirect('app-grocery-store-index')
     return render(request, 'app_grocery_store/index.html')
 
 

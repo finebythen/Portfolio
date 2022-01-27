@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", e => {
     let form = document.getElementById('form-store');
     let input = document.getElementById('input-store');
     let btn_post = document.getElementById('btn-post-store');
-    let ul = document.getElementById('ulist-store');    
+    let ul = document.getElementById('ulist-store');
 
     const api_get_store_all = () => {
         let url = `${url_base}${url_app}api/get/`;
