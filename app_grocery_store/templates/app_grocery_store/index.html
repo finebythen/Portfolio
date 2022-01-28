@@ -17,15 +17,6 @@
     </div>
     <div class="container">
         <div class="card card-body">
-            <form method="post" id="form-mail">
-                {% csrf_token %}
-                <input type="email" id="input-mail" name="input-mail" placeholder="...@example.com" autocomplete="off" required>
-                <button class="btn btn-danger btn-sm" name="btn-mail" type="submit">
-                    <i class="bi bi-envelope-fill"></i>
-                </button>
-            </form>
-        </div>
-        <div class="card card-body">
             <div class="card-header">
                 <form id="form-store">
                     <input type="text" id="input-store" placeholder="Einkauf..." autocomplete="off" required>
@@ -40,6 +31,15 @@
             <div class="card-body">
                 <ul id="ulist-store"></ul>
             </div>
+        </div>
+        <div class="card card-body">
+            <form method="post" id="form-mail">
+                {% csrf_token %}
+                <input type="email" id="input-mail" name="input-mail" placeholder="...@example.com" autocomplete="off" required>
+                <button class="btn btn-danger btn-sm" name="btn-mail" type="submit">
+                    <i class="bi bi-envelope-fill"></i>
+                </button>
+            </form>
         </div>
     </div>
 {% endblock content %}

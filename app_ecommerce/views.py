@@ -77,6 +77,11 @@ def checkout(request):
     return render(request, f'{TEMPLATE_URL}/checkout.html', context)
 
 
+def object(request, pk):
+    qs = Product.objects.get(id=pk)
+    return render(request, f'{TEMPLATE_URL}/object.html', {'obj': qs})
+
+
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']

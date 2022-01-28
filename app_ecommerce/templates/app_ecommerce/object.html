@@ -1,0 +1,46 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_ecommerce/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_ecommerce/object.css' %}">
+{% endblock link %}
+
+{% block title %}
+    Item
+{% endblock title %}
+
+{% block content %}
+    {% include 'app_ecommerce/navbar.html' %}
+
+    <a href="{% url 'store' %}" id="link-backwards">
+        <i class="bi bi-backspace-fill"></i>
+    </a>
+    <div class="container">
+        <div class="grid-container-object">
+            <div class="tile-image">
+                <div id="lens"></div>
+                <img id="featured" src="{{ obj.image.url }}" alt="img">
+            </div>
+            <div class="tile-header">
+                <h1>{{ obj.name }}</h1>
+            </div>
+            <div class="tile-price">
+                <h3>{{ obj.price }} €</h3>
+            </div>
+            <div class="tile-description">
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo 
+                    dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit 
+                    amet.
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/app_ecommerce/objects.js' %}"></script>
+{% endblock script %}

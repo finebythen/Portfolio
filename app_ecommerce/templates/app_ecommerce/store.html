@@ -28,9 +28,9 @@
                         <button data-product="{{ products.0.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
                             <i class="bi bi-cart-check"></i>
                         </button>
-                        <button class="btn btn-success btn-sm">
+                        <a class="btn btn-success btn-sm link-object" href="{% url 'object' products.0.id %}">
                             <i class="bi bi-search"></i>
-                        </button>
+                        </a>
                         <h4><strong>{{ products.0.price|floatformat:2 }} €</strong></h4>
                     </div>
                 </div>
@@ -51,9 +51,9 @@
                         <button data-product="{{ products.1.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
                             <i class="bi bi-cart-check"></i>
                         </button>
-                        <button class="btn btn-success btn-sm">
+                        <a class="btn btn-success btn-sm link-object" href="{% url 'object' products.1.id %}">
                             <i class="bi bi-search"></i>
-                        </button>
+                        </a>
                         <h4><strong>{{ products.1.price|floatformat:2 }} €</strong></h4>
                     </div>
                 </div>
@@ -74,9 +74,9 @@
                         <button data-product="{{ products.2.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
                             <i class="bi bi-cart-check"></i>
                         </button>
-                        <button class="btn btn-success btn-sm">
+                        <a class="btn btn-success btn-sm link-object" href="{% url 'object' products.2.id %}">
                             <i class="bi bi-search"></i>
-                        </button>
+                        </a>
                         <h4><strong>{{ products.2.price|floatformat:2 }} €</strong></h4>
                     </div>
                 </div>
@@ -97,9 +97,9 @@
                         <button data-product="{{ products.3.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
                             <i class="bi bi-cart-check"></i>
                         </button>
-                        <button class="btn btn-success btn-sm">
+                        <a class="btn btn-success btn-sm link-object" href="{% url 'object' products.3.id %}">
                             <i class="bi bi-search"></i>
-                        </button>
+                        </a>
                         <h4><strong>{{ products.3.price|floatformat:2 }} €</strong></h4>
                     </div>
                 </div>
@@ -120,9 +120,9 @@
                         <button data-product="{{ products.4.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
                             <i class="bi bi-cart-check"></i>
                         </button>
-                        <button class="btn btn-success btn-sm">
+                        <a class="btn btn-success btn-sm link-object" href="{% url 'object' products.4.id %}">
                             <i class="bi bi-search"></i>
-                        </button>
+                        </a>
                         <h4><strong>{{ products.4.price|floatformat:2 }} €</strong></h4>
                     </div>
                 </div>
@@ -143,32 +143,15 @@
                         <button data-product="{{ products.5.id }}" data-action="add" class="btn btn-success btn-sm add-btn update-cart">
                             <i class="bi bi-cart-check"></i>
                         </button>
-                        <button class="btn btn-success btn-sm">
+                        <a class="btn btn-success btn-sm link-object" href="{% url 'object' products.5.id %}">
                             <i class="bi bi-search"></i>
-                        </button>
+                        </a>
                         <h4><strong>{{ products.5.price|floatformat:2 }} €</strong></h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="container">
-        <div class="row">
-            {% for product in products %}
-                <div class="col-lg-4">
-                    <img class="thumbnail" src="{{ product.imageURL }}" alt="productImage">
-                    <div class="box-element product">
-                        <h6><strong>{{ product.name }}</strong></h6>
-                        <hr>
-    
-                        <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4><strong>${{ product.price|floatformat:2 }}</strong></h4>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div> -->
 {% endblock content %}
 
 {% block script %}

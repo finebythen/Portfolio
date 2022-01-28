@@ -31,8 +31,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	gap: 16px 32px;
-	margin: 0 32px;
+	gap: 0;
 	grid-template-areas:
 		"product-1 product-2 product-3"
 		"product-4 product-5 product-6";
@@ -58,8 +57,8 @@
 .grid-product {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 2fr 0.5fr 0.75	fr;
-	gap: 0px 0px;
+	grid-template-rows: 2fr 0.5fr 0.75fr;
+	gap: 0px;
 	grid-template-areas:
 		"img"
 		"title"
@@ -72,7 +71,7 @@
 	justify-content: space-evenly;
 	align-items: center;
 	background-color: var(--color-dark-beige);
-	margin: 16px 0;
+	margin: 8px 0 4px 0;
 }
 .title > .card > h6 {
 	margin: 0;
@@ -221,4 +220,23 @@ h6 {
 
 .hidden {
 	display: none!important;
+}
+
+.link-object {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 42px;
+	width: 100px;
+	border-radius: 8px;
+}
+.link-object:link,
+.link-object:hover,
+.link-object:active,
+.link-object:visited {
+	border: 1px solid var(--color-mid-purple);
+	background-color: var(--color-mid-purple);
+}
+.link-object > i {
+	font-size: 18px;
 }
