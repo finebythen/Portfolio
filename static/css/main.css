@@ -1,13 +1,13 @@
-:root {
-    --body-min-width: 760px;
-}
-
 html {
     scroll-behavior: smooth;
+    font-size: 100% !important;
 }
 
 body {
-    min-width: var(--body-min-width);
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: 100vh !important;
+    max-width: 99vw !important;
 }
 
 /* Grid */
@@ -15,13 +15,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 0.05fr 1fr 1fr 0.05fr 0.5fr 0.75fr 0.25fr;
-    gap: 16px;
-    margin: 16px;
+    gap: 1rem;
     grid-template-areas:
         "grid-header grid-header grid-header grid-header grid-header grid-header grid-header grid-header"
         "grid-name grid-name grid-name grid-name grid-name grid-name grid-name grid-name"
-        "grid-app-01 grid-app-01 grid-app-01 grid-app-02 grid-app-02 grid-app-02 grid-empty-01 grid-info"
-        "grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-empty-01 grid-info"
+        "grid-app-01 grid-app-01 grid-app-01 grid-app-02 grid-app-02 grid-app-02 grid-info grid-info"
+        "grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio"
         "grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03"
         "grid-app-04 grid-app-04 grid-app-05 grid-app-05 grid-app-06 grid-app-06 grid-app-07 grid-app-07"
         "grid-links grid-links grid-links grid-links grid-links grid-links grid-links grid-links";
@@ -48,12 +47,13 @@ body {
 .grid-app-05 { grid-area: grid-app-05; }
 .grid-app-06 { grid-area: grid-app-06; }
 .grid-app-07 { grid-area: grid-app-07; }
-.grid-empty-01 { grid-area: grid-empty-01; }
 
 .grid-app-01,
 .grid-app-02,
 .grid-info {
-    height: 60vh;
+    height: 50vh;
+    min-height: 34.375rem;
+    text-align: right;
 }
 .grid-app-01,
 .grid-app-02 {
@@ -61,61 +61,72 @@ body {
     justify-content: space-evenly;
     align-items: center;
 }
+.grid-app-03 {
+    min-height: 15.625rem;
+}
+.grid-app-04,
+.grid-app-05,
+.grid-app-06,
+.grid-app-07 {
+    /* width: 23vw; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 .grid-header > i {
     position: fixed;
-    top: 9px;
-    left: 22px;
+    top: 0.5625rem;
+    left: 1.375rem;
     z-index: 10;
     color: var(--color-mid-purple);
-    margin-right: 16px;
-    font-size: 24px;
+    margin-right: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
-.grid-header > p {
-    margin: 0 0 25px 50px;
+.grid-header > div > p {
+    margin: 1.125rem 0 0 3.75rem;
     font-weight: 700;
 }
 
 .grid-name > h1 {
     position: absolute;
     bottom: 0;
-    right: 0;
-    margin-right: 32px;
-    margin-bottom: 50px;
-    font-size: 125px;
+    padding-left: 1rem;
+    padding-bottom: 3rem;
+    font-size: 7.8125rem;
     font-weight: 700;
 }
 
 .grid-info {
-    padding-left: 16px;
+    padding-left: 1rem;
 }
 .grid-info > h4,
 .grid-info > p {
-    margin-right: 24px;
+    padding-right: 2.5rem;
 }
 .grid-info > h4 {
-    margin-bottom: 16px;
+    padding-bottom: 1rem;
 }
 .grid-info > h4:nth-child(1),
 .grid-info > h4:nth-child(4),
 .grid-info > h4:nth-child(15) {
-    margin-top: 32px;
+    margin-top: 2rem;
 }
 .grid-info > p {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    font-size: 14px;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
 }
 
 .grid-container-weather {
     height: 100%;
     width: 100%;
-    padding: 32px;
+    padding: 2rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
-    gap: 0px 0px;
+    gap: 0px;
     grid-template-areas:
         "grid-icon"
         "grid-input";
@@ -130,22 +141,22 @@ body {
 }
 .grid-input > form > input[type=text],
 .grid-input > form > button {
-    margin: 0 8px;
-    height: 42px;
-    border-radius: 16px;
+    padding: 0 0.5rem;
+    height: 2.625rem;
+    border-radius: 1rem;
 }
 .grid-input > form > button {
-    min-width: 70px;
+    min-width: 4.375rem;
 }
 .grid-icon > i,
 .grid-icon > a > i {
-    font-size: 100px;
+    font-size: 6.25rem;
     color: var(--color-mid-purple);
 }
 
 .grid-portfolio > h1 {
-    margin: 0;
-    font-size: 90px;
+    padding: 0 0 0 1rem;
+    font-size: 5.625rem;
     font-weight: 700;
 }
 
@@ -155,11 +166,14 @@ body {
     align-items: center;
 }
 .grid-links > i {
-    margin: 16px;
-    font-size: 50px;
+    margin: 1rem;
+    font-size: 3.125rem;
     color: var(--color-mid-purple);
 }
 
+.grid-app-01 {
+    padding-left: 1rem;
+}
 .grid-app-01,
 .grid-app-01 > .card-body {
     display: flex;
@@ -184,21 +198,21 @@ body {
     overflow-y: hidden;
 }
 .grid-app-03 > h3 {
-    margin: 0 64px 0 32px;
+    padding: 0 4rem 0 2rem;
 }
 .grid-app-03 > .card {
-    margin-right: 32px;
+    margin-right: 2rem;
     height: 100% !important;
-    width: 300px !important;
-    min-width: 300px !important;
-    max-width: 300px !important;
+    width: 18.75rem !important;
+    min-width: 18.75rem !important;
+    max-width: 18.75rem !important;
     text-align: center;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 .grid-app-03 > .card > p {
-    margin: 8px 0;
+    margin: 0.5rem 0;
 }
 
 .grid-app-04,
@@ -206,62 +220,62 @@ body {
 .grid-app-06 {
     border-right: 2px solid var(--color-mid-purple);
 }
-.grid-app-04 > div:nth-child(1),
-.grid-app-05 > div:nth-child(1),
-.grid-app-06 > div:nth-child(1),
-.grid-app-07 > div:nth-child(1) {
+.grid-app-04 > div > div:nth-child(1),
+.grid-app-05 > div > div:nth-child(1),
+.grid-app-06 > div > div:nth-child(1),
+.grid-app-07 > div > div:nth-child(1) {
     width: 100%;
     height: 85%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.grid-app-04 > div:nth-child(2),
-.grid-app-05 > div:nth-child(2),
-.grid-app-06 > div:nth-child(2),
-.grid-app-07 > div:nth-child(2) {
+.grid-app-04 > div > div:nth-child(2),
+.grid-app-05 > div > div:nth-child(2),
+.grid-app-06 > div > div:nth-child(2),
+.grid-app-07 > div > div:nth-child(2) {
     width: 100%;
     height: 15%;
     text-align: center;
 }
-.grid-app-04 > div > i,
-.grid-app-05 > div > i,
-.grid-app-06 > div > i,
-.grid-app-07 > div > i {
-    font-size: 75px;
+.grid-app-04 > div > div > i,
+.grid-app-05 > div > div > i,
+.grid-app-06 > div > div > i,
+.grid-app-07 > div > div > i {
+    font-size: 4.6875rem;
     color: var(--color-mid-purple);
 }
-.grid-app-04 > div > a:link,
-.grid-app-04 > div > a:visited,
-.grid-app-04 > div > a:active,
-.grid-app-05 > div > a:link,
-.grid-app-05 > div > a:visited,
-.grid-app-05 > div > a:active,
-.grid-app-06 > div > a:link,
-.grid-app-06 > div > a:visited,
-.grid-app-06 > div > a:active,
-.grid-app-07 > div > a:link,
-.grid-app-07 > div > a:visited,
-.grid-app-07 > div > a:active {
+.grid-app-04 > div > div > a:link,
+.grid-app-04 > div > div > a:visited,
+.grid-app-04 > div > div > a:active,
+.grid-app-05 > div > div > a:link,
+.grid-app-05 > div > div > a:visited,
+.grid-app-05 > div > div > a:active,
+.grid-app-06 > div > div > a:link,
+.grid-app-06 > div > div > a:visited,
+.grid-app-06 > div > div > a:active,
+.grid-app-07 > div > div > a:link,
+.grid-app-07 > div > div > a:visited,
+.grid-app-07 > div > div > a:active {
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     text-decoration: none;
     color: #000;
 }
-.grid-app-04 > div > a:hover,
-.grid-app-05 > div > a:hover,
-.grid-app-06 > div > a:hover,
-.grid-app-07 > div > a:hover {
-    font-size: 24px;
+.grid-app-04 > div > div > a:hover,
+.grid-app-05 > div > div > a:hover,
+.grid-app-06 > div > div > a:hover,
+.grid-app-07 > div > div > a:hover {
+    font-size: 1.5rem;
 }
 
 /* Map */
 .map-leaflet {
     height: 100%;
     border: 1px solid var(--color-mid-beige);
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 /* Flip-Animations */
@@ -271,7 +285,7 @@ body {
     left: 0;
     width: 90%;
     height: 90%;
-    border-radius: 10px;
+    border-radius: 0.75rem;
     transform-style: preserve-3d;
     transition: all 0.8s ease;
 }
@@ -290,15 +304,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.75rem;
     backface-visibility: hidden;
     overflow: hidden;
     text-align: center;
-    padding: 0 32px;
+    padding: 0 2rem;
 }
 .tile-flip-front > p {
     margin: 0;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 .tile-flip-back {
     position: absolute;
@@ -306,7 +320,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.75rem;
     backface-visibility: hidden;
     overflow: hidden;
     text-align: center;
@@ -323,7 +337,7 @@ body {
     color: var(--color-mid-purple);
 }
 .tile-flip-back > a > i {
-    font-size: 100px;
+    font-size: 6.25rem;
 }
 
 /* Scrollbar */
@@ -348,23 +362,26 @@ body::-webkit-scrollbar-thumb,
 }
 
 /* Media-Queries */
+@media only screen and (max-width: 1200px) {
+    .grid-name > h1 {
+        font-size: 6.25rem;
+    }
+}
 @media only screen and (max-width: 1000px) {
     .grid-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.05fr 1fr 1fr 1fr 0.05fr 0.5fr 0.5fr 0.5fr 0.25fr;
-        gap: 16px;
-        margin: 16px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.05fr 1fr 1fr 1fr 0.05fr 0.5fr 0.25fr 0.25fr 0.25fr;
         grid-template-areas:
-            "grid-header grid-header grid-header grid-header grid-header grid-header grid-header grid-header"
-            "grid-name grid-name grid-name grid-name grid-name grid-name grid-name grid-name"
-            "grid-app-01 grid-app-01 grid-app-01 grid-app-01 grid-app-01 grid-app-01 grid-app-01 grid-info"
-            "grid-app-02 grid-app-02 grid-app-02 grid-app-02 grid-app-02 grid-app-02 grid-app-02 grid-info"
-            "grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-portfolio grid-info"
-            "grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03 grid-app-03"
-            "grid-app-04 grid-app-04 grid-app-04 grid-app-04 grid-app-05 grid-app-05 grid-app-05 grid-app-05"
-            "grid-app-06 grid-app-06 grid-app-06 grid-app-06 grid-app-07 grid-app-07 grid-app-07 grid-app-07"
-            "grid-links grid-links grid-links grid-links grid-links grid-links grid-links grid-links";
+            "grid-header grid-header grid-header grid-header"
+            "grid-name grid-name grid-name grid-name"
+            "grid-app-01 grid-app-01 grid-app-01 grid-info"
+            "grid-app-02 grid-app-02 grid-app-02 grid-info"
+            "grid-portfolio grid-portfolio grid-portfolio grid-portfolio"
+            "grid-app-03 grid-app-03 grid-app-03 grid-app-03"
+            "grid-app-04 grid-app-04 grid-app-05 grid-app-05"
+            "grid-app-06 grid-app-06 grid-app-07 grid-app-07"
+            "grid-links grid-links grid-links grid-links";
     }
 
     .grid-app-04,
@@ -372,5 +389,74 @@ body::-webkit-scrollbar-thumb,
     .grid-app-06,
     .grid-app-07 {
         border: 0;
+        height: 25vh;
+    }
+}
+@media only screen and (max-width: 750px) {
+    html {
+        font-size: 90% !important;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.05fr 1fr 0.5fr 0.5fr 0.05fr 0.5fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
+        grid-template-areas:
+            "grid-header grid-header grid-header grid-header"
+            "grid-name grid-name grid-name grid-name"
+            "grid-app-01 grid-app-01 grid-app-01 grid-info"
+            "grid-app-02 grid-app-02 grid-app-02 grid-info"
+            "grid-portfolio grid-portfolio grid-portfolio grid-portfolio"
+            "grid-app-03 grid-app-03 grid-app-03 grid-app-03"
+            "grid-app-04 grid-app-04 grid-app-04 grid-app-04"
+            "grid-app-05 grid-app-05 grid-app-05 grid-app-05"
+            "grid-app-06 grid-app-06 grid-app-06 grid-app-06"
+            "grid-app-07 grid-app-07 grid-app-07 grid-app-07"
+            "grid-links grid-links grid-links grid-links";
+    }
+    .grid-app-01,
+    .grid-app-02 {
+        min-height: 30rem;
+    }
+    .grid-info {
+        min-height: calc(30rem * 2);
+    }
+    .grid-app-04,
+    .grid-app-05,
+    .grid-app-06,
+    .grid-app-07 {
+        height: 20vh;
+    }
+}
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 80% !important;
+    }
+    .grid-app-01,
+    .grid-app-02 {
+        min-height: 25rem;
+    }
+    .grid-info {
+        min-height: calc(25rem * 2);
+    }
+}
+@media only screen and (max-width: 500px) {
+    html {
+        font-size: 60% !important;
+    }
+    .grid-name {
+        height: 40vh;
+    }
+    .grid-name > h1 {
+        padding-bottom: 1rem;
+    }
+    .grid-app-01,
+    .grid-app-02 {
+        min-height: 20rem;
+    }
+    .grid-info {
+        min-height: calc(20rem * 2);
+    }
+    .grid-app-03 > .card {
+        height: 70% !important;
     }
 }

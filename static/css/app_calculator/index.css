@@ -13,7 +13,6 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 10fr;
     gap: 16px;
-    margin: 16px;
     height: 90vh;
     align-items: center;
     grid-template-areas:

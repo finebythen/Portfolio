@@ -13,7 +13,9 @@
     <div class="grid-container">
         <div class="grid-header">
             <i class="bi bi-arrow-up-circle-fill" id="icon-scroll"></i>
-            <p>Anwendungs- und Webentwicklung (Front- & Backend)</p>
+            <div>
+                <p>Anwendungs- und Webentwicklung (Front- & Backend)</p>
+            </div>
         </div>
         <div class="grid-name">
             <h1>Finn Morten Then</h1>
@@ -23,16 +25,17 @@
             <p>Anwendungsentwicklung</p>
             <p>Webentwicklung</p>
             <h4>Technologien</h4>
-            <p>HTML & CSS</p>
-            <p>JavaScript</p>
-            <p>Python</p>
-            <p>C# (in Progress)</p>
-            <p>VBA</p>
+            <p>CSS</p>
             <p>Django</p>
-            <p>React</p>
+            <p>HTML</p>
+            <p>Java (again...&#128517;)</p>
+            <p>JavaScript</p>
             <p>Node JS (in Progress)</p>
+            <p>Python</p>
             <p>PostgreSQL</p>
+            <p>React</p>
             <p>scikit-learn (ML)</p>
+            <p>VBA</p>
             <h4>Kontakt</h4>
             <p>finnmortenthen@gmail.com</p>
         </div>
@@ -149,40 +152,47 @@
         <div class="grid-app-04">
             <!-- App: Calculator -->
             <div>
-                <i class="bi bi-calculator"></i>
-            </div>
-            <div>
-                <a href="{% url 'app-calculator-index' %}">Taschenrechner</a>
+                <div>
+                    <i class="bi bi-calculator"></i>
+                </div>
+                <div>
+                    <a href="{% url 'app-calculator-index' %}">Taschenrechner &#187;</a>
+                </div>
             </div>
         </div>
         <div class="grid-app-05">
             <!-- App: Shop -->
             <div>
-                <i class="bi bi-cart"></i>
-            </div>
-            <div>
-                <a href="{% url 'store' %}">Shop</a>
+                <div>
+                    <i class="bi bi-cart"></i>
+                </div>
+                <div>
+                    <a href="{% url 'store' %}">Shop &#187;</a>
+                </div>
             </div>
         </div>
         <div class="grid-app-06">
             <!-- App: 3D-World -->
             <div>
-                <i class="bi bi-globe"></i>
-            </div>
-            <div>
-                <a href="{% url 'app-3d-world-index' %}">3D-World</a>
+                <div>
+                    <i class="bi bi-globe"></i>
+                </div>
+                <div>
+                    <a href="{% url 'app-3d-world-index' %}">3D-World &#187;</a>
+                </div>
             </div>
         </div>
         <div class="grid-app-07">
             <!-- App: Game -->
             <div>
-                <i class="bi bi-controller"></i>
-            </div>
-            <div>
-                <a href="{% url 'app-game-index' %}">Game</a>
+                <div>
+                    <i class="bi bi-controller"></i>
+                </div>
+                <div>
+                    <a href="{% url 'app-game-index' %}">Game &#187;</a>
+                </div>
             </div>
         </div>
-        <div class="grid-empty-01"></div>
     </div>
 {% endblock content %}
 
